@@ -9,27 +9,42 @@ namespace Pika_Test_Framework
 {
     public class Test
     {
-        private string id;
+        private int id;
         private string name;
         private int baseline;
         private string type;
         private string fileName;
         private string description;
-        DateTime dateCreated;
-        DateTime dateModified;
-        List<Run> runs;
-        List<TestLabel> testLabels;
+        private DateTime dateCreated;
+        private DateTime dateModified;
+        public List<Run> runs;
+        public List<Label> labels;
 
         public Test()
         {
+            this.Id = -1;
             this.dateCreated = DateTime.Now;
             this.dateModified = DateTime.Now;
             this.runs = new List<Run>();
-            this.testLabels = new List<TestLabel>();
+            this.labels = new List<Label>();
             
         }
 
-        public string Id
+        public Test(PikaDBDataSet.TestsRow row)
+        {
+            this.Id = row.ID;
+            this.Name = row.Name;
+            this.Type = row.Type;
+            this.FileName = row.FileName;
+            this.Description = row.Description.ToString();
+            this.DateCreated = row.DateCreated;
+            this.DateModified = row.DateModified;
+            this.runs = new List<Run>();
+            this.labels = new List<Label>();
+
+        }
+
+        public int Id
         {
             get
             {

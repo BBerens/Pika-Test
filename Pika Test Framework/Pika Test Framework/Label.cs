@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Pika_Test_Framework
 {
-    class Label
+    public class Label
     {
-        int labelId;
-        string name;
-        List<TestLabel> testLabels;
+        private int labelId;
+        private int weight;
+        private string name;
+        //List<TestLabel> testLabels;
 
         public Label()
         {
             labelId = -1;
-            testLabels = new List<TestLabel>();
+            //testLabels = new List<TestLabel>();
         }
         public int LabelId
         {
@@ -39,6 +40,24 @@ namespace Pika_Test_Framework
             {
                 name = value;
             }
+        }
+
+        public int Weight
+        {
+            get
+            {
+                return weight;
+            }
+            set
+            {
+                weight = value;
+            }
+        }
+
+        public string[] ToArr()
+        {
+            string[] array = new string[] {Name, Weight.ToString() };
+            return array;
         }
     }
 

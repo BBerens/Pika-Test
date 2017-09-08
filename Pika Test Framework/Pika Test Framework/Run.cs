@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pika_Test_Framework
 {
-    class Run
+    public class Run
     {
-        string runId;
+        private string runId;
         Test test;
         Resource resource;
         DateTime timeStart;

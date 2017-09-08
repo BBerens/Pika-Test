@@ -33,7 +33,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.testsTableAdapter = new Pika_Test_Framework.PikaDBDataSetTableAdapters.TestsTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baselineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +40,10 @@
             this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateModifiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editButton = new System.Windows.Forms.Button();
+            this.testLabelsTableAdapter1 = new Pika_Test_Framework.PikaDBDataSetTableAdapters.TestLabelsTableAdapter();
+            this.testViewTableAdapter1 = new Pika_Test_Framework.PikaDBDataSetTableAdapters.TestViewTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
@@ -53,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(769, 33);
+            this.button1.Location = new System.Drawing.Point(729, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 23);
             this.button1.TabIndex = 0;
@@ -67,6 +70,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -78,15 +83,13 @@
             this.dateCreatedDataGridViewTextBoxColumn,
             this.dateModifiedDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.testsBindingSource;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(12, 96);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(962, 317);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // testsBindingSource
-            // 
-            this.testsBindingSource.DataMember = "Tests";
-            this.testsBindingSource.DataSource = this.pikaDBDataSet;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -131,11 +134,35 @@
             this.dateModifiedDataGridViewTextBoxColumn.HeaderText = "DateModified";
             this.dateModifiedDataGridViewTextBoxColumn.Name = "dateModifiedDataGridViewTextBoxColumn";
             // 
+            // testsBindingSource
+            // 
+            this.testsBindingSource.DataMember = "Tests";
+            this.testsBindingSource.DataSource = this.pikaDBDataSet;
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(729, 58);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(127, 23);
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "Edit Test";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // testLabelsTableAdapter1
+            // 
+            this.testLabelsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // testViewTableAdapter1
+            // 
+            this.testViewTableAdapter1.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 425);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -162,6 +189,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateModifiedDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource testsBindingSource;
+        private System.Windows.Forms.Button editButton;
+        private PikaDBDataSetTableAdapters.TestLabelsTableAdapter testLabelsTableAdapter1;
+        private PikaDBDataSetTableAdapters.TestViewTableAdapter testViewTableAdapter1;
     }
 }
 

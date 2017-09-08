@@ -15,54 +15,79 @@ namespace Pika_Test_Framework
         private BindingList<Label> labelList = new BindingList<Label>();
         private HashSet<int> labelHashSet = new HashSet<int>();
         public Test returnTest { get; set; }
+        
         public NewTestForm()
         {
             InitializeComponent();
+            groupBox1.Text = "";
+            
+
         }
 
+        public NewTestForm(PikaDBDataSet.TestsRow row)
+        {
+            InitializeComponent();
+            idTextBox.Text = row.ID.ToString();
+            idTextBox.Enabled = false;
+            nameTextBox.Text = row.Name;
+            nameTextBox.Enabled = false;
+
+
+        }
         private void NewTestForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'pikaDBDataSet.Baselines' table. You can move, or remove it, as needed.
             this.baselinesTableAdapter.Fill(this.pikaDBDataSet.Baselines);
             // TODO: This line of code loads data into the 'pikaDBDataSet.Labels' table. You can move, or remove it, as needed.
             this.labelsTableAdapter.Fill(this.pikaDBDataSet.Labels);
-            
-            listBox1.DataSource = labelList;
-            textBox6.Text = DateTime.Now.ToShortDateString();
-            textBox7.Text = DateTime.Now.ToShortDateString();
+
+            dataGridView1.DataSource = labelList;
+            dataGridView1.Columns[0].DataPropertyName = "Name";
+            dataGridView1.Columns[1].DataPropertyName = "Weight";
+            dateCreatedTextBox.Text = DateTime.Now.ToShortDateString();
+            dateModifiedTextBox.Text = DateTime.Now.ToShortDateString();
         }
 
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-            Label newLabel = new Label();
-            newLabel.LabelId = (int)drv["labelId"];
-            newLabel.Name = (string)drv["labelName"];
-            if(labelHashSet.Add(newLabel.LabelId))
-                labelList.Add(newLabel);
-            listBox1.DisplayMember = "name";
-           
-            listBox1.Refresh();
-            listBox1.Update();
+            using (var labelDialog = new LabelDialog())
+            {
+                var result = labelDialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                    Label newLabel = new Label();
+                    newLabel.LabelId = (int)drv["labelId"];
+                    newLabel.Name = (string)drv["labelName"];
+                    newLabel.Weight = labelDialog.weight;
+                    if (labelHashSet.Add(newLabel.LabelId))
+                        labelList.Add(newLabel);
+                    dataGridView1.Update();
+                }
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            labelHashSet.Remove(((Label)listBox1.SelectedItem).LabelId);
-            labelList.Remove((Label)listBox1.SelectedItem);
+            
+            labelHashSet.Remove(((Label)dataGridView1.SelectedRows[0].DataBoundItem).LabelId);
+            labelList.Remove((Label)dataGridView1.SelectedRows[0].DataBoundItem);
+            dataGridView1.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Test newTest = new Test();
-            newTest.Name = textBox3.Text;
-            newTest.Baseline = (int)comboBox2.SelectedValue;
-            newTest.Type = textBox4.Text;
-            newTest.FileName = textBox5.Text;
-            newTest.DateCreated = Convert.ToDateTime(textBox6.Text);
-            newTest.DateModified = Convert.ToDateTime(textBox7.Text);
+            newTest.Name = nameTextBox.Text;
+            newTest.Baseline = (int)baselineCombo.SelectedValue;
+            newTest.Type = typeTextBox.Text;
+            newTest.FileName = filenameTextBox.Text;
+            newTest.DateCreated = Convert.ToDateTime(dateCreatedTextBox.Text);
+            newTest.DateModified = Convert.ToDateTime(dateModifiedTextBox.Text);
             newTest.Description = richTextieBox1.Text;
+            newTest.labels = labelList.ToList<Label>();
 
             this.returnTest = newTest;
             this.DialogResult = DialogResult.OK;
@@ -72,6 +97,25 @@ namespace Pika_Test_Framework
         private void button4_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+        
+        void OnCollectionChanged(object sender, EventArgs e)
+        {
+            this.dataGridView1.Height = this.dataGridView1.PreferredSize.Height;
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            this.button3.Enabled = true;
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if(this.dataGridView1.Rows.Count == 0)
+            {
+                this.button3.Enabled = false;
+            }
+
         }
     }
 }
