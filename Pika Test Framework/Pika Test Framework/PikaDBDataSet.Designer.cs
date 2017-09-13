@@ -1739,6 +1739,8 @@ namespace Pika_Test_Framework {
             
             private global::System.Data.DataColumn columnDescription;
             
+            private global::System.Data.DataColumn columnTestID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TestsDataTable() {
@@ -1838,6 +1840,14 @@ namespace Pika_Test_Framework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TestIDColumn {
+                get {
+                    return this.columnTestID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1873,7 +1883,7 @@ namespace Pika_Test_Framework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TestsRow AddTestsRow(string Name, string Type, string FileName, System.DateTime DateCreated, System.DateTime DateModified, BaselinesRow parentBaselinesRowByFK_Baselines, byte[] Description) {
+            public TestsRow AddTestsRow(string Name, string Type, string FileName, System.DateTime DateCreated, System.DateTime DateModified, BaselinesRow parentBaselinesRowByFK_Baselines, byte[] Description, string TestID) {
                 TestsRow rowTestsRow = ((TestsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1883,7 +1893,8 @@ namespace Pika_Test_Framework {
                         DateCreated,
                         DateModified,
                         null,
-                        Description};
+                        Description,
+                        TestID};
                 if ((parentBaselinesRowByFK_Baselines != null)) {
                     columnValuesArray[6] = parentBaselinesRowByFK_Baselines[0];
                 }
@@ -1924,6 +1935,7 @@ namespace Pika_Test_Framework {
                 this.columnDateModified = base.Columns["DateModified"];
                 this.columnBaseline = base.Columns["Baseline"];
                 this.columnDescription = base.Columns["Description"];
+                this.columnTestID = base.Columns["TestID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1945,6 +1957,8 @@ namespace Pika_Test_Framework {
                 base.Columns.Add(this.columnBaseline);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
+                this.columnTestID = new global::System.Data.DataColumn("TestID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTestID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2108,7 +2122,15 @@ namespace Pika_Test_Framework {
             
             private global::System.Data.DataColumn columnLabelName;
             
-            private global::System.Data.DataColumn columnName1;
+            private global::System.Data.DataColumn columnLabelID;
+            
+            private global::System.Data.DataColumn columnWeight;
+            
+            private global::System.Data.DataColumn columnBaseline;
+            
+            private global::System.Data.DataColumn columnTestID;
+            
+            private global::System.Data.DataColumn columnTestID1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2209,9 +2231,41 @@ namespace Pika_Test_Framework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Name1Column {
+            public global::System.Data.DataColumn LabelIDColumn {
                 get {
-                    return this.columnName1;
+                    return this.columnLabelID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WeightColumn {
+                get {
+                    return this.columnWeight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BaselineColumn {
+                get {
+                    return this.columnBaseline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TestIDColumn {
+                get {
+                    return this.columnTestID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TestID1Column {
+                get {
+                    return this.columnTestID1;
                 }
             }
             
@@ -2252,7 +2306,7 @@ namespace Pika_Test_Framework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TestViewRow AddTestViewRow(string Name, string Type, string FileName, System.DateTime DateCreated, System.DateTime DateModified, byte[] Description, string LabelName, string Name1) {
+            public TestViewRow AddTestViewRow(string Name, string Type, string FileName, System.DateTime DateCreated, System.DateTime DateModified, byte[] Description, string LabelName, int Weight, string Baseline, string TestID, string TestID1) {
                 TestViewRow rowTestViewRow = ((TestViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2263,17 +2317,14 @@ namespace Pika_Test_Framework {
                         DateModified,
                         Description,
                         LabelName,
-                        Name1};
+                        null,
+                        Weight,
+                        Baseline,
+                        TestID,
+                        TestID1};
                 rowTestViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTestViewRow);
                 return rowTestViewRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TestViewRow FindByID(int ID) {
-                return ((TestViewRow)(this.Rows.Find(new object[] {
-                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2301,7 +2352,11 @@ namespace Pika_Test_Framework {
                 this.columnDateModified = base.Columns["DateModified"];
                 this.columnDescription = base.Columns["Description"];
                 this.columnLabelName = base.Columns["LabelName"];
-                this.columnName1 = base.Columns["Name1"];
+                this.columnLabelID = base.Columns["LabelID"];
+                this.columnWeight = base.Columns["Weight"];
+                this.columnBaseline = base.Columns["Baseline"];
+                this.columnTestID = base.Columns["TestID"];
+                this.columnTestID1 = base.Columns["TestID1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2323,16 +2378,21 @@ namespace Pika_Test_Framework {
                 base.Columns.Add(this.columnDescription);
                 this.columnLabelName = new global::System.Data.DataColumn("LabelName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLabelName);
-                this.columnName1 = new global::System.Data.DataColumn("Name1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName1);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
+                this.columnLabelID = new global::System.Data.DataColumn("LabelID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLabelID);
+                this.columnWeight = new global::System.Data.DataColumn("Weight", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeight);
+                this.columnBaseline = new global::System.Data.DataColumn("Baseline", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBaseline);
+                this.columnTestID = new global::System.Data.DataColumn("TestID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTestID);
+                this.columnTestID1 = new global::System.Data.DataColumn("TestID1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTestID1);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
-                this.columnID.Unique = true;
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 50;
                 this.columnType.MaxLength = 50;
@@ -2341,8 +2401,15 @@ namespace Pika_Test_Framework {
                 this.columnDateModified.AllowDBNull = false;
                 this.columnLabelName.AllowDBNull = false;
                 this.columnLabelName.MaxLength = 50;
-                this.columnName1.AllowDBNull = false;
-                this.columnName1.MaxLength = 50;
+                this.columnLabelID.AutoIncrement = true;
+                this.columnLabelID.AutoIncrementSeed = -1;
+                this.columnLabelID.AutoIncrementStep = -1;
+                this.columnLabelID.AllowDBNull = false;
+                this.columnLabelID.ReadOnly = true;
+                this.columnBaseline.AllowDBNull = false;
+                this.columnBaseline.MaxLength = 50;
+                this.columnTestID1.Caption = "TestID";
+                this.columnTestID1.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3185,6 +3252,22 @@ namespace Pika_Test_Framework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TestID {
+                get {
+                    try {
+                        return ((string)(this[this.tableTests.TestIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TestID\' in table \'Tests\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTests.TestIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BaselinesRow BaselinesRow {
                 get {
                     return ((BaselinesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Baselines"])));
@@ -3251,6 +3334,18 @@ namespace Pika_Test_Framework {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescriptionNull() {
                 this[this.tableTests.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTestIDNull() {
+                return this.IsNull(this.tableTests.TestIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTestIDNull() {
+                this[this.tableTests.TestIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3395,12 +3490,71 @@ namespace Pika_Test_Framework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Name1 {
+            public int LabelID {
                 get {
-                    return ((string)(this[this.tableTestView.Name1Column]));
+                    return ((int)(this[this.tableTestView.LabelIDColumn]));
                 }
                 set {
-                    this[this.tableTestView.Name1Column] = value;
+                    this[this.tableTestView.LabelIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Weight {
+                get {
+                    try {
+                        return ((int)(this[this.tableTestView.WeightColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Weight\' in table \'TestView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTestView.WeightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Baseline {
+                get {
+                    return ((string)(this[this.tableTestView.BaselineColumn]));
+                }
+                set {
+                    this[this.tableTestView.BaselineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TestID {
+                get {
+                    try {
+                        return ((string)(this[this.tableTestView.TestIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TestID\' in table \'TestView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTestView.TestIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TestID1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableTestView.TestID1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TestID1\' in table \'TestView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTestView.TestID1Column] = value;
                 }
             }
             
@@ -3438,6 +3592,42 @@ namespace Pika_Test_Framework {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescriptionNull() {
                 this[this.tableTestView.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWeightNull() {
+                return this.IsNull(this.tableTestView.WeightColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWeightNull() {
+                this[this.tableTestView.WeightColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTestIDNull() {
+                return this.IsNull(this.tableTestView.TestIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTestIDNull() {
+                this[this.tableTestView.TestIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTestID1Null() {
+                return this.IsNull(this.tableTestView.TestID1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTestID1Null() {
+                this[this.tableTestView.TestID1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5369,8 +5559,9 @@ SELECT ID, Baseline, Name, Type, FileName, DateCreated, DateModified, Descriptio
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        ID, Baseline, Name, Type, FileName, DateCreated, DateModified, Desc" +
-                "ription\r\nFROM            Tests";
+                "ription\r\nFROM            Tests\r\nWHERE        (Baseline = @baselineId)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@baselineId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Baseline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO Tests\r\n                         (Name, Type, Baseline, FileName, Date" +
@@ -5390,8 +5581,14 @@ SELECT ID, Baseline, Name, Type, FileName, DateCreated, DateModified, Descriptio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PikaDBDataSet.TestsDataTable dataTable) {
+        public virtual int Fill(PikaDBDataSet.TestsDataTable dataTable, global::System.Nullable<int> baselineId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((baselineId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(baselineId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -5403,8 +5600,14 @@ SELECT ID, Baseline, Name, Type, FileName, DateCreated, DateModified, Descriptio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PikaDBDataSet.TestsDataTable GetData() {
+        public virtual PikaDBDataSet.TestsDataTable GetData(global::System.Nullable<int> baselineId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((baselineId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(baselineId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             PikaDBDataSet.TestsDataTable dataTable = new PikaDBDataSet.TestsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5832,7 +6035,10 @@ SELECT ID, Baseline, Name, Type, FileName, DateCreated, DateModified, Descriptio
             tableMapping.ColumnMappings.Add("DateModified", "DateModified");
             tableMapping.ColumnMappings.Add("Description", "Description");
             tableMapping.ColumnMappings.Add("LabelName", "LabelName");
-            tableMapping.ColumnMappings.Add("Name1", "Name1");
+            tableMapping.ColumnMappings.Add("LabelID", "LabelID");
+            tableMapping.ColumnMappings.Add("Weight", "Weight");
+            tableMapping.ColumnMappings.Add("Baseline", "Baseline");
+            tableMapping.ColumnMappings.Add("TestID", "TestID1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5849,26 +6055,23 @@ SELECT ID, Baseline, Name, Type, FileName, DateCreated, DateModified, Descriptio
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Tests.ID, Baselines.Name, Tests.Name, Tests.Type, Tests.FileName, Tests.DateCreated, Tests.DateModified, Tests.Description, Labels.LabelName
-FROM            Tests 
-	INNER JOIN TestLabels 
-		ON Tests.ID = TestLabels.TestID 
-	INNER JOIN Labels 
-		ON TestLabels.LabelID = Labels.LabelID
-	INNER JOIN Baselines
-		ON Tests.Baseline = Baselines.ID
-WHERE        (Tests.ID = @testId)";
+            this._commandCollection[0].CommandText = @"SELECT        Tests.ID, Baselines.Name AS Baseline, Tests.Name, Tests.Type, Tests.FileName, Tests.DateCreated, Tests.DateModified, Tests.Description, Labels.LabelName, Labels.LabelID, TestLabels.Weight, Tests.TestID
+FROM            Tests INNER JOIN
+                         TestLabels ON Tests.ID = TestLabels.TestID INNER JOIN
+                         Labels ON TestLabels.LabelID = Labels.LabelID INNER JOIN
+                         Baselines ON Tests.Baseline = Baselines.ID
+WHERE        (Tests.ID = @Id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@testId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PikaDBDataSet.TestViewDataTable dataTable, int testId) {
+        public virtual int Fill(PikaDBDataSet.TestViewDataTable dataTable, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(testId));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -5880,9 +6083,9 @@ WHERE        (Tests.ID = @testId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PikaDBDataSet.TestViewDataTable GetDataByTestID(int testId) {
+        public virtual PikaDBDataSet.TestViewDataTable GetDataByTestID(int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(testId));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             PikaDBDataSet.TestViewDataTable dataTable = new PikaDBDataSet.TestViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

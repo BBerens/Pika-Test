@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Pika_Test_Framework
 {
     public partial class NewTestForm : Form
@@ -16,30 +17,43 @@ namespace Pika_Test_Framework
         private HashSet<int> labelHashSet = new HashSet<int>();
         public Test returnTest { get; set; }
         
-        public NewTestForm()
+        public NewTestForm(PikaDBDataSet.BaselinesDataTable baselinesDT, PikaDBDataSet.LabelsDataTable labelsDT, int baseline)
         {
             InitializeComponent();
             groupBox1.Text = "";
-            
-
+            baselineCombo.DataSource = baselinesDT;
+            baselineCombo.DisplayMember = "Name";
+            baselineCombo.ValueMember = "Id";
+            baselineCombo.SelectedIndex = baseline;
         }
 
-        public NewTestForm(PikaDBDataSet.TestsRow row)
+        public NewTestForm(PikaDBDataSet.BaselinesDataTable baselinesDT, PikaDBDataSet.LabelsDataTable labelsDT, Test modifiedTest)
         {
             InitializeComponent();
-            idTextBox.Text = row.ID.ToString();
+            baselineCombo.DataSource = baselinesDT;
+            baselineCombo.DisplayMember = "Name";
+            baselineCombo.ValueMember = "Id";
+            idTextBox.Text = modifiedTest.TestId;
             idTextBox.Enabled = false;
-            nameTextBox.Text = row.Name;
-            nameTextBox.Enabled = false;
-
-
+            nameTextBox.Text = modifiedTest.Name;
+            //nameTextBox.Enabled = true;
+            groupBox1.Text = modifiedTest.TestId;
+            typeTextBox.Text = modifiedTest.Type;
+            labelList = new BindingList<Label>(modifiedTest.labels);
+            foreach(Label label in modifiedTest.labels)
+                labelHashSet.Add(label.LabelId);
+            filenameTextBox.Text = modifiedTest.FileName;
+            dateCreatedTextBox.Text = modifiedTest.DateCreated.ToLongTimeString();
+            dateModifiedTextBox.Text = modifiedTest.DateModified.ToLongTimeString();
+            richTextieBox1.Text = modifiedTest.Description;
         }
         private void NewTestForm_Load(object sender, EventArgs e)
         {
+            // Trying to minimize the fill commands.
             // TODO: This line of code loads data into the 'pikaDBDataSet.Baselines' table. You can move, or remove it, as needed.
-            this.baselinesTableAdapter.Fill(this.pikaDBDataSet.Baselines);
+            //this.baselinesTableAdapter.Fill(this.pikaDBDataSet.Baselines);
             // TODO: This line of code loads data into the 'pikaDBDataSet.Labels' table. You can move, or remove it, as needed.
-            this.labelsTableAdapter.Fill(this.pikaDBDataSet.Labels);
+            //this.labelsTableAdapter.Fill(this.pikaDBDataSet.Labels);
 
             dataGridView1.DataSource = labelList;
             dataGridView1.Columns[0].DataPropertyName = "Name";

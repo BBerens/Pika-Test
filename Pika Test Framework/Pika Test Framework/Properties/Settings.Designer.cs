@@ -32,5 +32,17 @@ namespace Pika_Test_Framework.Properties {
                 return ((string)(this["PikaDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int Baseline {
+            get {
+                return ((int)(this["Baseline"]));
+            }
+            set {
+                this["Baseline"] = value;
+            }
+        }
     }
 }

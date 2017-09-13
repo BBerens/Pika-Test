@@ -18,6 +18,13 @@ namespace Pika_Test_Framework
             labelId = -1;
             //testLabels = new List<TestLabel>();
         }
+
+        public Label(PikaDBDataSet.TestViewRow row)
+        {
+            this.LabelId = row.LabelID;
+            this.Name = row.LabelName;
+            this.Weight = row.Weight;
+        }
         public int LabelId
         {
             get

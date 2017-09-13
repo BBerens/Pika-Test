@@ -9,11 +9,7 @@
 
 namespace Pika_Test_Framework.PikaDBDataSetTableAdapters
 {
-    partial class TestViewTableAdapter
-    {
-    }
-
-    partial class TestsTableAdapter
+    partial class TestLabelsTableAdapter
     {
     }
 }

@@ -67,12 +67,14 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.richTextieBox1 = new Pika_Test_Framework.RichTextieBox();
+            this.baselinesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -257,14 +259,12 @@
             // 
             // baselineCombo
             // 
-            this.baselineCombo.DataSource = this.baselinesBindingSource;
-            this.baselineCombo.DisplayMember = "Name";
+            this.baselineCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pikaDBDataSet, "Baselines.ID", true));
             this.baselineCombo.FormattingEnabled = true;
             this.baselineCombo.Location = new System.Drawing.Point(65, 29);
             this.baselineCombo.Name = "baselineCombo";
             this.baselineCombo.Size = new System.Drawing.Size(121, 21);
             this.baselineCombo.TabIndex = 24;
-            this.baselineCombo.ValueMember = "ID";
             // 
             // baselinesBindingSource
             // 
@@ -405,6 +405,11 @@
             this.richTextieBox1.Size = new System.Drawing.Size(469, 480);
             this.richTextieBox1.TabIndex = 23;
             // 
+            // baselinesBindingSource1
+            // 
+            this.baselinesBindingSource1.DataMember = "Baselines";
+            this.baselinesBindingSource1.DataSource = this.pikaDBDataSet;
+            // 
             // NewTestForm
             // 
             this.AcceptButton = this.button1;
@@ -425,6 +430,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -466,5 +472,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.BindingSource baselinesBindingSource1;
     }
 }
