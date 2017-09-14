@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pika Test Framework", "Pika
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Directory Walker", "Directory Walker\Directory Walker.csproj", "{CAC6BEA5-BDE5-433A-9F7E-E92BA08D5F89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PikaUpdater", "PikaUpdater\PikaUpdater.csproj", "{90615BA9-DE14-41A9-9A83-04E5D0EE0F59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CAC6BEA5-BDE5-433A-9F7E-E92BA08D5F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC6BEA5-BDE5-433A-9F7E-E92BA08D5F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC6BEA5-BDE5-433A-9F7E-E92BA08D5F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90615BA9-DE14-41A9-9A83-04E5D0EE0F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90615BA9-DE14-41A9-9A83-04E5D0EE0F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90615BA9-DE14-41A9-9A83-04E5D0EE0F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90615BA9-DE14-41A9-9A83-04E5D0EE0F59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
