@@ -33,6 +33,12 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pikaDBDataSet = new Directory_Walker.PikaDBDataSet();
+            this.kayakFilesTableAdapter = new Directory_Walker.PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
+            this.tableAdapterManager = new Directory_Walker.PikaDBDataSetTableAdapters.TableAdapterManager();
+            this.baselinesTableAdapter = new Directory_Walker.PikaDBDataSetTableAdapters.BaselinesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -69,17 +75,53 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(506, 51);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(357, 459);
+            this.listBox1.TabIndex = 4;
+            // 
+            // pikaDBDataSet
+            // 
+            this.pikaDBDataSet.DataSetName = "PikaDBDataSet";
+            this.pikaDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kayakFilesTableAdapter
+            // 
+            this.kayakFilesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BaselinesTableAdapter = this.baselinesTableAdapter;
+            this.tableAdapterManager.KayakFilesTableAdapter = this.kayakFilesTableAdapter;
+            this.tableAdapterManager.LabelsTableAdapter = null;
+            this.tableAdapterManager.ResourcesTableAdapter = null;
+            this.tableAdapterManager.RunsTableAdapter = null;
+            this.tableAdapterManager.TestLabelsTableAdapter = null;
+            this.tableAdapterManager.TestsTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Directory_Walker.PikaDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // baselinesTableAdapter
+            // 
+            this.baselinesTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 529);
+            this.ClientSize = new System.Drawing.Size(892, 618);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSelect);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,6 +133,11 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
+        private PikaDBDataSet pikaDBDataSet;
+        private PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter;
+        private PikaDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private PikaDBDataSetTableAdapters.BaselinesTableAdapter baselinesTableAdapter;
     }
 }
 
