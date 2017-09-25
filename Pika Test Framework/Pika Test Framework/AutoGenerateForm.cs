@@ -14,7 +14,7 @@ namespace Pika_Test_Framework
     public partial class AutoGenerateForm : Form
     {
         
-        public AutoGenerateForm(PikaDBDataSet pikaDBDataSet)
+        /*public AutoGenerateForm(PikaDBDataSet pikaDBDataSet)
         {
             InitializeComponent();
             PikaDBDataSet.KayakFilesDataTable newKayakFiles;
@@ -23,7 +23,7 @@ namespace Pika_Test_Framework
             comboBox1.ValueMember = "FolderPath";
             textBox1.Text = (string)comboBox1.SelectedValue;
             
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -44,6 +44,15 @@ namespace Pika_Test_Framework
         private void button2_Click(object sender, EventArgs e)
         {
             AutoGenerator autoGen = new AutoGenerator(folderBrowserDialog1.SelectedPath);
+            autoGen.FindNewTestFiles(PikaDBDataSetTableAdapters.KayakFilesTableAdapter)
+        }
+
+        private void kayakFilesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.kayakFilesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.pikaDBDataSet);
+
         }
     }
 }

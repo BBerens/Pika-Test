@@ -78,14 +78,6 @@
     <Compile Include="NewTestForm.Designer.cs">
       <DependentUpon>NewTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PikaDBDataSet.cs">
-      <DependentUpon>PikaDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="PikaDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PikaDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
@@ -127,17 +119,6 @@
       <DependentUpon>RichTextieBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="PikaDBDataSet.xsc">
-      <DependentUpon>PikaDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PikaDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>PikaDBDataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="PikaDBDataSet.xss">
-      <DependentUpon>PikaDBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

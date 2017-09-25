@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Pika_Test_Framework {
+namespace Directory_Walker {
     
     
     /// <summary>
@@ -4569,7 +4569,7 @@ namespace Pika_Test_Framework {
         }
     }
 }
-namespace Pika_Test_Framework.PikaDBDataSetTableAdapters {
+namespace Directory_Walker.PikaDBDataSetTableAdapters {
     
     
     /// <summary>
