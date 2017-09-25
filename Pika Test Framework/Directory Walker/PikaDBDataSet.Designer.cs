@@ -528,6 +528,8 @@ namespace Directory_Walker {
             
             private global::System.Data.DataColumn columnName;
             
+            private global::System.Data.DataColumn columnFolderPath;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BaselinesDataTable() {
@@ -579,6 +581,14 @@ namespace Directory_Walker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FolderPathColumn {
+                get {
+                    return this.columnFolderPath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -614,11 +624,12 @@ namespace Directory_Walker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BaselinesRow AddBaselinesRow(string Name) {
+            public BaselinesRow AddBaselinesRow(string Name, string FolderPath) {
                 BaselinesRow rowBaselinesRow = ((BaselinesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Name};
+                        Name,
+                        FolderPath};
                 rowBaselinesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBaselinesRow);
                 return rowBaselinesRow;
@@ -650,6 +661,7 @@ namespace Directory_Walker {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnName = base.Columns["Name"];
+                this.columnFolderPath = base.Columns["FolderPath"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -659,6 +671,8 @@ namespace Directory_Walker {
                 base.Columns.Add(this.columnID);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
+                this.columnFolderPath = new global::System.Data.DataColumn("FolderPath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFolderPath);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2731,6 +2745,34 @@ namespace Directory_Walker {
                 set {
                     this[this.tableBaselines.NameColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FolderPath {
+                get {
+                    try {
+                        return ((string)(this[this.tableBaselines.FolderPathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FolderPath\' in table \'Baselines\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBaselines.FolderPathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFolderPathNull() {
+                return this.IsNull(this.tableBaselines.FolderPathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFolderPathNull() {
+                this[this.tableBaselines.FolderPathColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

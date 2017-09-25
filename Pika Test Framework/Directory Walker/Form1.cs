@@ -113,20 +113,14 @@ namespace Directory_Walker
 
         }
 
-        private void kayakFilesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.kayakFilesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.pikaDBDataSet);
 
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'pikaDBDataSet.Baselines' table. You can move, or remove it, as needed.
             this.baselinesTableAdapter.Fill(this.pikaDBDataSet.Baselines);
             // TODO: This line of code loads data into the 'pikaDBDataSet.KayakFiles' table. You can move, or remove it, as needed.
-            this.kayakFilesTableAdapter.Fill(this.pikaDBDataSet.KayakFiles);
+            this.kayakFilesTableAdapter.Fill(this.pikaDBDataSet.KayakFiles, 1);
 
         }
     }

@@ -122,5 +122,11 @@ namespace Pika_Test_Framework
                 }
             }
         }
+
+        private void autoGenerateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutoGenerateForm autoGen1 = new AutoGenerateForm(pikaDBDataSet);
+            autoGen1.Show();
+        }
     }
 }

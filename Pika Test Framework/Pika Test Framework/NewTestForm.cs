@@ -24,7 +24,7 @@ namespace Pika_Test_Framework
             baselineCombo.DataSource = baselinesDT;
             baselineCombo.DisplayMember = "Name";
             baselineCombo.ValueMember = "Id";
-            baselineCombo.SelectedIndex = baseline;
+            baselineCombo.SelectedIndex = baseline + 1;
         }
 
         public NewTestForm(PikaDBDataSet.BaselinesDataTable baselinesDT, PikaDBDataSet.LabelsDataTable labelsDT, Test modifiedTest)
