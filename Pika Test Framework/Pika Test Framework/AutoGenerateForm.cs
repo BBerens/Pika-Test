@@ -13,8 +13,8 @@ namespace Pika_Test_Framework
 {
     public partial class AutoGenerateForm : Form
     {
-        
-        /*public AutoGenerateForm(PikaDBDataSet pikaDBDataSet)
+        PikaDBDataSet.KayakFilesDataTable kayakFilesDT;
+        public AutoGenerateForm(PikaDBDataSet pikaDBDataSet)
         {
             InitializeComponent();
             PikaDBDataSet.KayakFilesDataTable newKayakFiles;
@@ -23,7 +23,7 @@ namespace Pika_Test_Framework
             comboBox1.ValueMember = "FolderPath";
             textBox1.Text = (string)comboBox1.SelectedValue;
             
-        }*/
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace Pika_Test_Framework
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if(result == DialogResult.OK)
             {
-                label1.Text = folderBrowserDialog1.SelectedPath;
+                textBox1.Text = folderBrowserDialog1.SelectedPath;
             }
         }
 
@@ -43,8 +43,10 @@ namespace Pika_Test_Framework
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AutoGenerator autoGen = new AutoGenerator(folderBrowserDialog1.SelectedPath);
-            autoGen.FindNewTestFiles(PikaDBDataSetTableAdapters.KayakFilesTableAdapter)
+            AutoGenerator autoGen = new AutoGenerator(textBox1.Text, pikaDBDataSet);
+            autoGen.FindNewTestFiles(kayakFilesDT);
+            dataGridView1.DataSource = kayakFilesDT;
+            dataGridView1.Update();
         }
 
         private void kayakFilesBindingNavigatorSaveItem_Click(object sender, EventArgs e)

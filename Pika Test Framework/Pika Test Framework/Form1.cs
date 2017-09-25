@@ -60,8 +60,9 @@ namespace Pika_Test_Framework
                 {
                     //int newTestID;
                     newTest = newTestForm.returnTest;
-                    pikaDBDataSet.Tests.AddTestsRow(newTest.Name, newTest.Type, newTest.FileName, newTest.DateCreated, newTest.DateModified, pikaDBDataSet.Baselines[newTest.Baseline], Encoding.UTF8.GetBytes(newTest.Description), newTest.TestId);
-                    var newTestID = testsTableAdapter.InsertQuery(newTest.Name, newTest.Type, newTest.Baseline, newTest.FileName, newTest.DateCreated, newTest.DateModified, Encoding.UTF8.GetBytes(newTest.Description));
+                    
+                    pikaDBDataSet.Tests.AddTestsRow(newTest.TestId, newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, pikaDBDataSet.Baselines[newTest.Baseline]);
+                    var newTestID = testsTableAdapter.InsertQuery(newTest.TestId, newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, newTest.Baseline);
                     //testsTableAdapter.Update(pikaDBDataSet);
                     foreach(Label label in newTest.labels)
                     {
@@ -91,7 +92,7 @@ namespace Pika_Test_Framework
                     }
                     else
                     {
-                        testsTableAdapter.InsertQuery(newTest.Name, newTest.Type, newTest.Baseline, newTest.FileName, newTest.DateCreated, newTest.DateModified, Encoding.UTF8.GetBytes(newTest.Description));
+                        testsTableAdapter.InsertQuery(newTest.TestId, newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, newTest.Baseline);
                         testsTableAdapter.Update(pikaDBDataSet);
                         this.testsTableAdapter.Fill(this.pikaDBDataSet.Tests, preferredBaseline);
                         dataGridView1.Update();

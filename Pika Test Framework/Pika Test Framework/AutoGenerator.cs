@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
+using Pika_Test_Framework;
 
 namespace Pika_Test_Framework
 {
@@ -60,14 +61,15 @@ namespace Pika_Test_Framework
         }
 
 
-        public void FindNewTestFiles()
+        public void FindNewTestFiles(PikaDBDataSet.KayakFilesDataTable filesDT)
         {
             var dir = new DirectoryInfo(rootDirectory);
             var doc = GetDirectory(dir, testFiles);
             doc.Save("dirStructure.xml");
             foreach (FileInfo file in testFiles)
             {
-                PikaDBDataSet.KayakFilesDataTable filesDT = pika GetDataByFileName(1, file.FullName);
+                PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter = new PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
+                filesDT = kayakFilesTableAdapter.GetDataByFileName(1, file.FullName);
                 if (filesDT.Count == 0)
                     ; // New file -> Add
                 else if (filesDT.Count == 1)
