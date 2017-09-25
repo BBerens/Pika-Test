@@ -1,0 +1,70 @@
+DROP TABLE IF EXISTS Runs;
+DROP TABLE IF EXISTS Resources;
+DROP TABLE IF EXISTS TestLabels;
+DROP TABLE IF EXISTS Labels;
+DROP TABLE IF EXISTS Tests;
+DROP TABLE IF EXISTS KayakFiles;
+DROP TABLE IF EXISTS Baselines;
+
+
+CREATE TABLE Baselines(
+	ID INT PRIMARY KEY IDENTITY,
+	Name VARCHAR(50) NOT NULL,
+	FolderPath VARCHAR(1000),
+);
+
+CREATE TABLE KayakFiles(
+	ID INT PRIMARY KEY IDENTITY,
+	BaselineID INT,
+	FileName VARCHAR(1000),
+	LastWriteTime DATETIME,
+	CreatedTime DATETIME,
+	CONSTRAINT FK_Baseline FOREIGN KEY (BaselineID) REFERENCES Baselines(ID)
+	); 
+
+CREATE TABLE Tests(
+	ID INT PRIMARY KEY IDENTITY,
+	TestID VARCHAR(10),
+	Name VARCHAR(50) NOT NULL,
+	Type VARCHAR(50),
+	FileName VARCHAR(50),
+	Description VARBinary(Max),
+	DateCreated SmallDateTime NOT NULL, 
+	DateModified SmallDateTime NOT NULL,
+	Baseline INT,
+	CONSTRAINT FK_Baselines FOREIGN KEY (Baseline) REFERENCES Baselines(ID)
+);
+
+CREATE TABLE Labels(
+	LabelID INT PRIMARY KEY IDENTITY,
+	LabelName VARCHAR(50) NOT NULL UNIQUE
+);
+
+--intermediary table:
+CREATE TABLE TestLabels(
+	TestID INT NOT NULL,
+	LabelID INT NOT NULL,
+	Weight INT,
+	CONSTRAINT FK_Tests FOREIGN KEY (TestID) REFERENCES Tests(ID),
+	CONSTRAINT FK_Labels FOREIGN KEY (LabelID) REFERENCES Labels(LabelID)
+);
+
+CREATE TABLE Resources(
+	ResourceID INT PRIMARY KEY IDENTITY,
+	ResourceName VARCHAR(50) NOT NULL,
+	ResourceIPAddress VARCHAR(15),
+	Baseline VARCHAR(50)
+);
+
+CREATE TABLE Runs(
+	RunID INT PRIMARY KEY IDENTITY,
+	TestID INT NOT NULL,
+	ResourceID INT NOT NULL,
+	RunDateTime VARCHAR(50) NOT NULL, --need to change to date data type
+	Result INT, --consider an enum
+	ResultString VARCHAR(MAX) NOT NULL
+	
+	CONSTRAINT FK_RunsResources FOREIGN KEY (ResourceID)  REFERENCES Resources(ResourceID),
+	CONSTRAINT FK_RunsTests FOREIGN KEY (TestID) REFERENCES Tests(ID)
+);
+
