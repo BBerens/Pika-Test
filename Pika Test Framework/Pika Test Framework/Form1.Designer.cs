@@ -55,11 +55,13 @@
             this.testViewTableAdapter1 = new Pika_Test_Framework.PikaDBDataSetTableAdapters.TestViewTableAdapter();
             this.baselinesTableAdapter1 = new Pika_Test_Framework.PikaDBDataSetTableAdapters.BaselinesTableAdapter();
             this.labelsTableAdapter1 = new Pika_Test_Framework.PikaDBDataSetTableAdapters.LabelsTableAdapter();
+            this.baselinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewTest
@@ -249,6 +251,11 @@
             // 
             this.labelsTableAdapter1.ClearBeforeFill = true;
             // 
+            // baselinesBindingSource
+            // 
+            this.baselinesBindingSource.DataMember = "Baselines";
+            this.baselinesBindingSource.DataSource = this.pikaDBDataSet;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +277,7 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,6 +309,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateModifiedDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripMenuItem autoGenerateToolStripMenuItem;
+        private System.Windows.Forms.BindingSource baselinesBindingSource;
     }
 }
 

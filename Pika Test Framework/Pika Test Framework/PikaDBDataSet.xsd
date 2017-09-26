@@ -543,7 +543,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
   <xs:element name="PikaDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PikaDBDataSet" msprop:Generator_UserDSName="PikaDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Baselines" msprop:Generator_TableClassName="BaselinesDataTable" msprop:Generator_TableVarName="tableBaselines" msprop:Generator_RowChangedName="BaselinesRowChanged" msprop:Generator_TablePropName="Baselines" msprop:Generator_RowDeletingName="BaselinesRowDeleting" msprop:Generator_RowChangingName="BaselinesRowChanging" msprop:Generator_RowEvHandlerName="BaselinesRowChangeEventHandler" msprop:Generator_RowDeletedName="BaselinesRowDeleted" msprop:Generator_RowClassName="BaselinesRow" msprop:Generator_UserTableName="Baselines" msprop:Generator_RowEvArgName="BaselinesRowChangeEvent">
+        <xs:element name="Baselines" msprop:Generator_TableClassName="BaselinesDataTable" msprop:Generator_TableVarName="tableBaselines" msprop:Generator_TablePropName="Baselines" msprop:Generator_RowDeletingName="BaselinesRowDeleting" msprop:Generator_RowChangingName="BaselinesRowChanging" msprop:Generator_RowEvHandlerName="BaselinesRowChangeEventHandler" msprop:Generator_RowDeletedName="BaselinesRowDeleted" msprop:Generator_UserTableName="Baselines" msprop:Generator_RowChangedName="BaselinesRowChanged" msprop:Generator_RowEvArgName="BaselinesRowChangeEvent" msprop:Generator_RowClassName="BaselinesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -564,7 +564,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="KayakFiles" msprop:Generator_TableClassName="KayakFilesDataTable" msprop:Generator_TableVarName="tableKayakFiles" msprop:Generator_RowChangedName="KayakFilesRowChanged" msprop:Generator_TablePropName="KayakFiles" msprop:Generator_RowDeletingName="KayakFilesRowDeleting" msprop:Generator_RowChangingName="KayakFilesRowChanging" msprop:Generator_RowEvHandlerName="KayakFilesRowChangeEventHandler" msprop:Generator_RowDeletedName="KayakFilesRowDeleted" msprop:Generator_RowClassName="KayakFilesRow" msprop:Generator_UserTableName="KayakFiles" msprop:Generator_RowEvArgName="KayakFilesRowChangeEvent">
+        <xs:element name="KayakFiles" msprop:Generator_TableClassName="KayakFilesDataTable" msprop:Generator_TableVarName="tableKayakFiles" msprop:Generator_TablePropName="KayakFiles" msprop:Generator_RowDeletingName="KayakFilesRowDeleting" msprop:Generator_RowChangingName="KayakFilesRowChanging" msprop:Generator_RowEvHandlerName="KayakFilesRowChangeEventHandler" msprop:Generator_RowDeletedName="KayakFilesRowDeleted" msprop:Generator_UserTableName="KayakFiles" msprop:Generator_RowChangedName="KayakFilesRowChanged" msprop:Generator_RowEvArgName="KayakFilesRowChangeEvent" msprop:Generator_RowClassName="KayakFilesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -581,7 +581,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Labels" msprop:Generator_TableClassName="LabelsDataTable" msprop:Generator_TableVarName="tableLabels" msprop:Generator_RowChangedName="LabelsRowChanged" msprop:Generator_TablePropName="Labels" msprop:Generator_RowDeletingName="LabelsRowDeleting" msprop:Generator_RowChangingName="LabelsRowChanging" msprop:Generator_RowEvHandlerName="LabelsRowChangeEventHandler" msprop:Generator_RowDeletedName="LabelsRowDeleted" msprop:Generator_RowClassName="LabelsRow" msprop:Generator_UserTableName="Labels" msprop:Generator_RowEvArgName="LabelsRowChangeEvent">
+        <xs:element name="Labels" msprop:Generator_TableClassName="LabelsDataTable" msprop:Generator_TableVarName="tableLabels" msprop:Generator_TablePropName="Labels" msprop:Generator_RowDeletingName="LabelsRowDeleting" msprop:Generator_RowChangingName="LabelsRowChanging" msprop:Generator_RowEvHandlerName="LabelsRowChangeEventHandler" msprop:Generator_RowDeletedName="LabelsRowDeleted" msprop:Generator_UserTableName="Labels" msprop:Generator_RowChangedName="LabelsRowChanged" msprop:Generator_RowEvArgName="LabelsRowChangeEvent" msprop:Generator_RowClassName="LabelsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LabelID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnLabelID" msprop:Generator_ColumnPropNameInRow="LabelID" msprop:Generator_ColumnPropNameInTable="LabelIDColumn" msprop:Generator_UserColumnName="LabelID" type="xs:int" />
@@ -595,7 +595,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Resources" msprop:Generator_TableClassName="ResourcesDataTable" msprop:Generator_TableVarName="tableResources" msprop:Generator_RowChangedName="ResourcesRowChanged" msprop:Generator_TablePropName="Resources" msprop:Generator_RowDeletingName="ResourcesRowDeleting" msprop:Generator_RowChangingName="ResourcesRowChanging" msprop:Generator_RowEvHandlerName="ResourcesRowChangeEventHandler" msprop:Generator_RowDeletedName="ResourcesRowDeleted" msprop:Generator_RowClassName="ResourcesRow" msprop:Generator_UserTableName="Resources" msprop:Generator_RowEvArgName="ResourcesRowChangeEvent">
+        <xs:element name="Resources" msprop:Generator_TableClassName="ResourcesDataTable" msprop:Generator_TableVarName="tableResources" msprop:Generator_TablePropName="Resources" msprop:Generator_RowDeletingName="ResourcesRowDeleting" msprop:Generator_RowChangingName="ResourcesRowChanging" msprop:Generator_RowEvHandlerName="ResourcesRowChangeEventHandler" msprop:Generator_RowDeletedName="ResourcesRowDeleted" msprop:Generator_UserTableName="Resources" msprop:Generator_RowChangedName="ResourcesRowChanged" msprop:Generator_RowEvArgName="ResourcesRowChangeEvent" msprop:Generator_RowClassName="ResourcesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ResourceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnResourceID" msprop:Generator_ColumnPropNameInRow="ResourceID" msprop:Generator_ColumnPropNameInTable="ResourceIDColumn" msprop:Generator_UserColumnName="ResourceID" type="xs:int" />
@@ -623,7 +623,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Runs" msprop:Generator_TableClassName="RunsDataTable" msprop:Generator_TableVarName="tableRuns" msprop:Generator_RowChangedName="RunsRowChanged" msprop:Generator_TablePropName="Runs" msprop:Generator_RowDeletingName="RunsRowDeleting" msprop:Generator_RowChangingName="RunsRowChanging" msprop:Generator_RowEvHandlerName="RunsRowChangeEventHandler" msprop:Generator_RowDeletedName="RunsRowDeleted" msprop:Generator_RowClassName="RunsRow" msprop:Generator_UserTableName="Runs" msprop:Generator_RowEvArgName="RunsRowChangeEvent">
+        <xs:element name="Runs" msprop:Generator_TableClassName="RunsDataTable" msprop:Generator_TableVarName="tableRuns" msprop:Generator_TablePropName="Runs" msprop:Generator_RowDeletingName="RunsRowDeleting" msprop:Generator_RowChangingName="RunsRowChanging" msprop:Generator_RowEvHandlerName="RunsRowChangeEventHandler" msprop:Generator_RowDeletedName="RunsRowDeleted" msprop:Generator_UserTableName="Runs" msprop:Generator_RowChangedName="RunsRowChanged" msprop:Generator_RowEvArgName="RunsRowChangeEvent" msprop:Generator_RowClassName="RunsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RunID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRunID" msprop:Generator_ColumnPropNameInRow="RunID" msprop:Generator_ColumnPropNameInTable="RunIDColumn" msprop:Generator_UserColumnName="RunID" type="xs:int" />
@@ -647,7 +647,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TestLabels" msprop:Generator_TableClassName="TestLabelsDataTable" msprop:Generator_TableVarName="tableTestLabels" msprop:Generator_RowChangedName="TestLabelsRowChanged" msprop:Generator_TablePropName="TestLabels" msprop:Generator_RowDeletingName="TestLabelsRowDeleting" msprop:Generator_RowChangingName="TestLabelsRowChanging" msprop:Generator_RowEvHandlerName="TestLabelsRowChangeEventHandler" msprop:Generator_RowDeletedName="TestLabelsRowDeleted" msprop:Generator_RowClassName="TestLabelsRow" msprop:Generator_UserTableName="TestLabels" msprop:Generator_RowEvArgName="TestLabelsRowChangeEvent">
+        <xs:element name="TestLabels" msprop:Generator_TableClassName="TestLabelsDataTable" msprop:Generator_TableVarName="tableTestLabels" msprop:Generator_TablePropName="TestLabels" msprop:Generator_RowDeletingName="TestLabelsRowDeleting" msprop:Generator_RowChangingName="TestLabelsRowChanging" msprop:Generator_RowEvHandlerName="TestLabelsRowChangeEventHandler" msprop:Generator_RowDeletedName="TestLabelsRowDeleted" msprop:Generator_UserTableName="TestLabels" msprop:Generator_RowChangedName="TestLabelsRowChanged" msprop:Generator_RowEvArgName="TestLabelsRowChangeEvent" msprop:Generator_RowClassName="TestLabelsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TestID" msprop:Generator_ColumnVarNameInTable="columnTestID" msprop:Generator_ColumnPropNameInRow="TestID" msprop:Generator_ColumnPropNameInTable="TestIDColumn" msprop:Generator_UserColumnName="TestID" type="xs:int" />
@@ -656,7 +656,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Tests" msprop:Generator_TableClassName="TestsDataTable" msprop:Generator_TableVarName="tableTests" msprop:Generator_RowChangedName="TestsRowChanged" msprop:Generator_TablePropName="Tests" msprop:Generator_RowDeletingName="TestsRowDeleting" msprop:Generator_RowChangingName="TestsRowChanging" msprop:Generator_RowEvHandlerName="TestsRowChangeEventHandler" msprop:Generator_RowDeletedName="TestsRowDeleted" msprop:Generator_RowClassName="TestsRow" msprop:Generator_UserTableName="Tests" msprop:Generator_RowEvArgName="TestsRowChangeEvent">
+        <xs:element name="Tests" msprop:Generator_TableClassName="TestsDataTable" msprop:Generator_TableVarName="tableTests" msprop:Generator_TablePropName="Tests" msprop:Generator_RowDeletingName="TestsRowDeleting" msprop:Generator_RowChangingName="TestsRowChanging" msprop:Generator_RowEvHandlerName="TestsRowChangeEventHandler" msprop:Generator_RowDeletedName="TestsRowDeleted" msprop:Generator_UserTableName="Tests" msprop:Generator_RowChangedName="TestsRowChanged" msprop:Generator_RowEvArgName="TestsRowChangeEvent" msprop:Generator_RowClassName="TestsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -670,7 +670,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="1000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -684,7 +684,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
               <xs:element name="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="1000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -695,7 +695,7 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TestView" msprop:Generator_TableClassName="TestViewDataTable" msprop:Generator_TableVarName="tableTestView" msprop:Generator_TablePropName="TestView" msprop:Generator_RowDeletingName="TestViewRowDeleting" msprop:Generator_RowChangingName="TestViewRowChanging" msprop:Generator_RowEvHandlerName="TestViewRowChangeEventHandler" msprop:Generator_RowDeletedName="TestViewRowDeleted" msprop:Generator_UserTableName="TestView" msprop:Generator_RowChangedName="TestViewRowChanged" msprop:Generator_RowEvArgName="TestViewRowChangeEvent" msprop:Generator_RowClassName="TestViewRow">
+        <xs:element name="TestView" msprop:Generator_TableClassName="TestViewDataTable" msprop:Generator_TableVarName="tableTestView" msprop:Generator_RowChangedName="TestViewRowChanged" msprop:Generator_TablePropName="TestView" msprop:Generator_RowDeletingName="TestViewRowDeleting" msprop:Generator_RowChangingName="TestViewRowChanging" msprop:Generator_RowEvHandlerName="TestViewRowChangeEventHandler" msprop:Generator_RowDeletedName="TestViewRowDeleted" msprop:Generator_RowClassName="TestViewRow" msprop:Generator_UserTableName="TestView" msprop:Generator_RowEvArgName="TestViewRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TestID" msprop:Generator_ColumnVarNameInTable="columnTestID" msprop:Generator_ColumnPropNameInRow="TestID" msprop:Generator_ColumnPropNameInTable="TestIDColumn" msprop:Generator_UserColumnName="TestID" minOccurs="0">
@@ -778,12 +778,12 @@ WHERE        (Tests.ID = @ID)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Baseline" msdata:parent="Baselines" msdata:child="KayakFiles" msdata:parentkey="ID" msdata:childkey="BaselineID" msprop:Generator_UserChildTable="KayakFiles" msprop:Generator_ChildPropName="GetKayakFilesRows" msprop:Generator_UserRelationName="FK_Baseline" msprop:Generator_RelationVarName="relationFK_Baseline" msprop:Generator_UserParentTable="Baselines" msprop:Generator_ParentPropName="BaselinesRow" />
-      <msdata:Relationship name="FK_RunsResources" msdata:parent="Resources" msdata:child="Runs" msdata:parentkey="ResourceID" msdata:childkey="ResourceID" msprop:Generator_UserChildTable="Runs" msprop:Generator_ChildPropName="GetRunsRows" msprop:Generator_UserRelationName="FK_RunsResources" msprop:Generator_RelationVarName="relationFK_RunsResources" msprop:Generator_UserParentTable="Resources" msprop:Generator_ParentPropName="ResourcesRow" />
-      <msdata:Relationship name="FK_RunsTests" msdata:parent="Tests" msdata:child="Runs" msdata:parentkey="ID" msdata:childkey="TestID" msprop:Generator_UserChildTable="Runs" msprop:Generator_ChildPropName="GetRunsRows" msprop:Generator_UserRelationName="FK_RunsTests" msprop:Generator_ParentPropName="TestsRow" msprop:Generator_RelationVarName="relationFK_RunsTests" msprop:Generator_UserParentTable="Tests" />
-      <msdata:Relationship name="FK_Labels" msdata:parent="Labels" msdata:child="TestLabels" msdata:parentkey="LabelID" msdata:childkey="LabelID" msprop:Generator_UserChildTable="TestLabels" msprop:Generator_ChildPropName="GetTestLabelsRows" msprop:Generator_UserRelationName="FK_Labels" msprop:Generator_RelationVarName="relationFK_Labels" msprop:Generator_UserParentTable="Labels" msprop:Generator_ParentPropName="LabelsRow" />
-      <msdata:Relationship name="FK_Tests" msdata:parent="Tests" msdata:child="TestLabels" msdata:parentkey="ID" msdata:childkey="TestID" msprop:Generator_UserChildTable="TestLabels" msprop:Generator_ChildPropName="GetTestLabelsRows" msprop:Generator_UserRelationName="FK_Tests" msprop:Generator_ParentPropName="TestsRow" msprop:Generator_RelationVarName="relationFK_Tests" msprop:Generator_UserParentTable="Tests" />
-      <msdata:Relationship name="FK_Baselines" msdata:parent="Baselines" msdata:child="Tests" msdata:parentkey="ID" msdata:childkey="Baseline" msprop:Generator_UserChildTable="Tests" msprop:Generator_ChildPropName="GetTestsRows" msprop:Generator_UserRelationName="FK_Baselines" msprop:Generator_RelationVarName="relationFK_Baselines" msprop:Generator_UserParentTable="Baselines" msprop:Generator_ParentPropName="BaselinesRow" />
+      <msdata:Relationship name="FK_Baseline" msdata:parent="Baselines" msdata:child="KayakFiles" msdata:parentkey="ID" msdata:childkey="BaselineID" msprop:Generator_UserChildTable="KayakFiles" msprop:Generator_ChildPropName="GetKayakFilesRows" msprop:Generator_UserRelationName="FK_Baseline" msprop:Generator_ParentPropName="BaselinesRow" msprop:Generator_RelationVarName="relationFK_Baseline" msprop:Generator_UserParentTable="Baselines" />
+      <msdata:Relationship name="FK_RunsResources" msdata:parent="Resources" msdata:child="Runs" msdata:parentkey="ResourceID" msdata:childkey="ResourceID" msprop:Generator_UserChildTable="Runs" msprop:Generator_ChildPropName="GetRunsRows" msprop:Generator_UserRelationName="FK_RunsResources" msprop:Generator_ParentPropName="ResourcesRow" msprop:Generator_RelationVarName="relationFK_RunsResources" msprop:Generator_UserParentTable="Resources" />
+      <msdata:Relationship name="FK_RunsTests" msdata:parent="Tests" msdata:child="Runs" msdata:parentkey="ID" msdata:childkey="TestID" msprop:Generator_UserChildTable="Runs" msprop:Generator_ChildPropName="GetRunsRows" msprop:Generator_UserRelationName="FK_RunsTests" msprop:Generator_RelationVarName="relationFK_RunsTests" msprop:Generator_UserParentTable="Tests" msprop:Generator_ParentPropName="TestsRow" />
+      <msdata:Relationship name="FK_Labels" msdata:parent="Labels" msdata:child="TestLabels" msdata:parentkey="LabelID" msdata:childkey="LabelID" msprop:Generator_UserChildTable="TestLabels" msprop:Generator_ChildPropName="GetTestLabelsRows" msprop:Generator_UserRelationName="FK_Labels" msprop:Generator_ParentPropName="LabelsRow" msprop:Generator_RelationVarName="relationFK_Labels" msprop:Generator_UserParentTable="Labels" />
+      <msdata:Relationship name="FK_Tests" msdata:parent="Tests" msdata:child="TestLabels" msdata:parentkey="ID" msdata:childkey="TestID" msprop:Generator_UserChildTable="TestLabels" msprop:Generator_ChildPropName="GetTestLabelsRows" msprop:Generator_UserRelationName="FK_Tests" msprop:Generator_RelationVarName="relationFK_Tests" msprop:Generator_UserParentTable="Tests" msprop:Generator_ParentPropName="TestsRow" />
+      <msdata:Relationship name="FK_Baselines" msdata:parent="Baselines" msdata:child="Tests" msdata:parentkey="ID" msdata:childkey="Baseline" msprop:Generator_UserChildTable="Tests" msprop:Generator_ChildPropName="GetTestsRows" msprop:Generator_UserRelationName="FK_Baselines" msprop:Generator_ParentPropName="BaselinesRow" msprop:Generator_RelationVarName="relationFK_Baselines" msprop:Generator_UserParentTable="Baselines" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -22,11 +22,8 @@ namespace Pika_Test_Framework
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'pikaDBDataSet.Tests' table. You can move, or remove it, as needed.
             this.baselinesTableAdapter1.Fill(this.pikaDBDataSet.Baselines);
-            //myUserSettings = new UserSettings();
-            
-
+            ;
             if (Properties.Settings.Default.Baseline == -1)
             {
                 using (var bDlg = new BaselineDialog())
@@ -54,7 +51,6 @@ namespace Pika_Test_Framework
         {
             using (var newTestForm = new NewTestForm(pikaDBDataSet.Baselines, pikaDBDataSet.Labels, preferredBaseline))
             {
-                
                 var result = newTestForm.ShowDialog();
                 if(result == DialogResult.OK)
                 {
@@ -72,12 +68,10 @@ namespace Pika_Test_Framework
                     dataGridView1.Update();
                 }
             }
-                
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            
             int testId = (int)dataGridView1.SelectedCells[0].Value;
             PikaDBDataSet.TestViewDataTable testRows = this.testViewTableAdapter1.GetDataByTestID(testId);
             Test modifiedTest = new Test(testRows);
@@ -103,7 +97,6 @@ namespace Pika_Test_Framework
 
         private int getBaselineSetting()
         {
-            
             return -1; // unable to get preferred baseline
         }
 
@@ -126,7 +119,7 @@ namespace Pika_Test_Framework
 
         private void autoGenerateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AutoGenerateForm autoGen1 = new AutoGenerateForm(pikaDBDataSet);
+            AutoGenerateForm autoGen1 = new AutoGenerateForm(pikaDBDataSet, preferredBaseline);
             autoGen1.Show();
         }
     }

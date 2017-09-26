@@ -13,16 +13,23 @@ namespace Pika_Test_Framework
 {
     public partial class AutoGenerateForm : Form
     {
-        PikaDBDataSet.KayakFilesDataTable kayakFilesDT;
-        public AutoGenerateForm(PikaDBDataSet pikaDBDataSet)
+        PikaDBDataSet.TestsDataTable testDataTable = new PikaDBDataSet.TestsDataTable();
+        private int defaultBaseline;
+
+        public AutoGenerateForm(PikaDBDataSet inPikaDBDataSet, int preferredBaseline)
         {
+            defaultBaseline = preferredBaseline;
+            pikaDBDataSet = inPikaDBDataSet;
+
             InitializeComponent();
-            PikaDBDataSet.KayakFilesDataTable newKayakFiles;
-            comboBox1.DataSource = pikaDBDataSet.Baselines;
+            //PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter = new PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
             comboBox1.DisplayMember = "Name";
             comboBox1.ValueMember = "FolderPath";
+            comboBox1.DataSource = pikaDBDataSet.Baselines;
+
+            comboBox1.SelectedIndex = defaultBaseline;
             textBox1.Text = (string)comboBox1.SelectedValue;
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,8 +51,8 @@ namespace Pika_Test_Framework
         private void button2_Click(object sender, EventArgs e)
         {
             AutoGenerator autoGen = new AutoGenerator(textBox1.Text, pikaDBDataSet);
-            autoGen.FindNewTestFiles(kayakFilesDT);
-            dataGridView1.DataSource = kayakFilesDT;
+            autoGen.FindNewTestFiles(testDataTable, comboBox1.SelectedIndex + 1);
+            dataGridView1.DataSource = testDataTable;
             dataGridView1.Update();
         }
 
@@ -54,6 +61,11 @@ namespace Pika_Test_Framework
             this.Validate();
             this.kayakFilesBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.pikaDBDataSet);
+        }
+
+        private void AutoGenerateForm_Load(object sender, EventArgs e)
+        {
+
 
         }
     }

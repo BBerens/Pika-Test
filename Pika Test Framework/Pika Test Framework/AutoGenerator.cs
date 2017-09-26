@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
 using Pika_Test_Framework;
+using Newtonsoft.Json;
+
+
+
 
 namespace Pika_Test_Framework
 {
@@ -61,8 +65,10 @@ namespace Pika_Test_Framework
         }
 
 
-        public void FindNewTestFiles(PikaDBDataSet.KayakFilesDataTable filesDT)
+        public void FindNewTestFiles(PikaDBDataSet.TestsDataTable testsDT, int baselineID)
         {
+            PikaDBDataSet.KayakFilesDataTable filesDT;
+            string description;
             var dir = new DirectoryInfo(rootDirectory);
             var doc = GetDirectory(dir, testFiles);
             doc.Save("dirStructure.xml");
@@ -71,14 +77,21 @@ namespace Pika_Test_Framework
                 PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter = new PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
                 filesDT = kayakFilesTableAdapter.GetDataByFileName(1, file.FullName);
                 if (filesDT.Count == 0)
-                    ; // New file -> Add
+                {
+                    string fileStr = File.ReadAllText(file.FullName);
+
+                    description = GetFirstInstance<string>("Description", fileStr);
+                    if (string.IsNullOrEmpty(description))
+                        description = "";
+                    testsDT.AddTestsRow("newTestID", file.Name.TrimEnd('\''), "Kayak", file.FullName, Encoding.UTF8.GetBytes(description), file.CreationTime, file.LastWriteTime, pikaDBDataSet.Baselines[baselineID]); // New file -> Add
+                }
                 else if (filesDT.Count == 1)
                     ; // File already exists in DB. Check if this is a newer copy
                 else
                     ; // Something is wrong and more than one file in DB have the same filepath
             }
         }
-        
+
         /*private void LoadElements(XElement xElem)
         {
 
@@ -100,5 +113,25 @@ namespace Pika_Test_Framework
             }
 
         }*/
+
+        public T GetFirstInstance<T>(string propertyName, string json)
+        {
+            using (var stringReader = new StringReader(json))
+            using (var jsonReader = new JsonTextReader(stringReader))
+            {
+                while (jsonReader.Read())
+                {
+                    if (jsonReader.TokenType == JsonToken.PropertyName
+                        && (string)jsonReader.Value == propertyName)
+                    {
+                        jsonReader.Read();
+
+                        var serializer = new JsonSerializer();
+                        return serializer.Deserialize<T>(jsonReader);
+                    }
+                }
+                return default(T);
+            }
+        }
     }
 }
