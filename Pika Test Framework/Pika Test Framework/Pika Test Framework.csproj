@@ -62,6 +62,7 @@
     <Compile Include="BaselineDialog.Designer.cs">
       <DependentUpon>BaselineDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridViewCheckBoxColumn.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +126,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RichTextieBox.resx">
       <DependentUpon>RichTextieBox.cs</DependentUpon>
@@ -156,6 +158,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Edit_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Edit_16x.png" />
+    <Content Include="Resources\Edit_grey_16x.png" />
+    <None Include="Resources\Edit_grey_16x1.png" />
     <Content Include="SQLQueries\SQLQuery2.sql" />
     <Content Include="SQLQueries\SQLQuery5.sql" />
   </ItemGroup>
