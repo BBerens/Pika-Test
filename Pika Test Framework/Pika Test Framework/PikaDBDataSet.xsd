@@ -749,6 +749,17 @@ WHERE        (Tests.ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="NewKayakFileTable" msprop:Generator_TableClassName="NewKayakFileTableDataTable" msprop:Generator_TableVarName="tableNewKayakFileTable" msprop:Generator_TablePropName="NewKayakFileTable" msprop:Generator_RowDeletingName="NewKayakFileTableRowDeleting" msprop:Generator_RowChangingName="NewKayakFileTableRowChanging" msprop:Generator_RowEvHandlerName="NewKayakFileTableRowChangeEventHandler" msprop:Generator_RowDeletedName="NewKayakFileTableRowDeleted" msprop:Generator_UserTableName="NewKayakFileTable" msprop:Generator_RowChangedName="NewKayakFileTableRowChanged" msprop:Generator_RowEvArgName="NewKayakFileTableRowChangeEvent" msprop:Generator_RowClassName="NewKayakFileTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="DateCreated" msprop:Generator_ColumnVarNameInTable="columnDateCreated" msprop:Generator_ColumnPropNameInRow="DateCreated" msprop:Generator_ColumnPropNameInTable="DateCreatedColumn" msprop:Generator_UserColumnName="DateCreated" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DateModified" msprop:Generator_ColumnVarNameInTable="columnDateModified" msprop:Generator_ColumnPropNameInRow="DateModified" msprop:Generator_ColumnPropNameInTable="DateModifiedColumn" msprop:Generator_UserColumnName="DateModified" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

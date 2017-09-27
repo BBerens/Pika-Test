@@ -42,8 +42,17 @@
             this.tableAdapterManager = new Pika_Test_Framework.PikaDBDataSetTableAdapters.TableAdapterManager();
             this.baselinesTableAdapter = new Pika_Test_Framework.PikaDBDataSetTableAdapters.BaselinesTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.newKayakFileTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pikaDBDataSet1 = new Pika_Test_Framework.PikaDBDataSet();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateModifiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kayakFilesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newKayakFileTableBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -95,12 +104,22 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 117);
+            this.Column1,
+            this.nameDataGridViewTextBoxColumn,
+            this.fileNameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.dateCreatedDataGridViewTextBoxColumn,
+            this.dateModifiedDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.newKayakFileTableBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 114);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(597, 277);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(930, 277);
             this.dataGridView1.TabIndex = 5;
             // 
             // button2
@@ -141,12 +160,58 @@
             // 
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // newKayakFileTableBindingSource1
+            // 
+            this.newKayakFileTableBindingSource1.DataMember = "NewKayakFileTable";
+            this.newKayakFileTableBindingSource1.DataSource = this.pikaDBDataSet1;
+            // 
+            // pikaDBDataSet1
+            // 
+            this.pikaDBDataSet1.DataSetName = "PikaDBDataSet";
+            this.pikaDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fileNameDataGridViewTextBoxColumn
+            // 
+            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
+            this.fileNameDataGridViewTextBoxColumn.HeaderText = "FileName";
+            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            this.fileNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateCreatedDataGridViewTextBoxColumn
+            // 
+            this.dateCreatedDataGridViewTextBoxColumn.DataPropertyName = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn.HeaderText = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn.Name = "dateCreatedDataGridViewTextBoxColumn";
+            this.dateCreatedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateModifiedDataGridViewTextBoxColumn
+            // 
+            this.dateModifiedDataGridViewTextBoxColumn.DataPropertyName = "DateModified";
+            this.dateModifiedDataGridViewTextBoxColumn.HeaderText = "DateModified";
+            this.dateModifiedDataGridViewTextBoxColumn.Name = "dateModifiedDataGridViewTextBoxColumn";
+            this.dateModifiedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // AutoGenerateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 736);
+            this.ClientSize = new System.Drawing.Size(973, 736);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.checkBox1);
@@ -156,9 +221,10 @@
             this.Controls.Add(this.button1);
             this.Name = "AutoGenerateForm";
             this.Text = "AutoGenerateForm";
-            this.Load += new System.EventHandler(this.AutoGenerateForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kayakFilesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newKayakFileTableBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +244,14 @@
         private PikaDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private PikaDBDataSet pikaDBDataSet;
         private PikaDBDataSetTableAdapters.BaselinesTableAdapter baselinesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumn1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.BindingSource newKayakFileTableBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateModifiedDataGridViewTextBoxColumn;
+        private PikaDBDataSet pikaDBDataSet1;
     }
 }

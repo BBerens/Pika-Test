@@ -13,7 +13,6 @@ namespace Pika_Test_Framework
 {
     public partial class AutoGenerateForm : Form
     {
-        PikaDBDataSet.TestsDataTable testDataTable = new PikaDBDataSet.TestsDataTable();
         private int defaultBaseline;
 
         public AutoGenerateForm(PikaDBDataSet inPikaDBDataSet, int preferredBaseline)
@@ -51,8 +50,8 @@ namespace Pika_Test_Framework
         private void button2_Click(object sender, EventArgs e)
         {
             AutoGenerator autoGen = new AutoGenerator(textBox1.Text, pikaDBDataSet);
-            autoGen.FindNewTestFiles(testDataTable, comboBox1.SelectedIndex + 1);
-            dataGridView1.DataSource = testDataTable;
+            autoGen.FindNewTestFiles(pikaDBDataSet.NewKayakFileTable, comboBox1.SelectedIndex);
+            dataGridView1.DataSource = pikaDBDataSet.NewKayakFileTable;
             dataGridView1.Update();
         }
 
@@ -63,10 +62,5 @@ namespace Pika_Test_Framework
             this.tableAdapterManager.UpdateAll(this.pikaDBDataSet);
         }
 
-        private void AutoGenerateForm_Load(object sender, EventArgs e)
-        {
-
-
-        }
     }
 }

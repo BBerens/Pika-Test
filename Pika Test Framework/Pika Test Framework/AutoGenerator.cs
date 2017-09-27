@@ -65,17 +65,18 @@ namespace Pika_Test_Framework
         }
 
 
-        public void FindNewTestFiles(PikaDBDataSet.TestsDataTable testsDT, int baselineID)
+        public void FindNewTestFiles(PikaDBDataSet.NewKayakFileTableDataTable testsDT, int baselineID)
         {
             PikaDBDataSet.KayakFilesDataTable filesDT;
             string description;
             var dir = new DirectoryInfo(rootDirectory);
             var doc = GetDirectory(dir, testFiles);
             doc.Save("dirStructure.xml");
+            testsDT.Clear();
             foreach (FileInfo file in testFiles)
             {
                 PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter = new PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
-                filesDT = kayakFilesTableAdapter.GetDataByFileName(1, file.FullName);
+                filesDT = kayakFilesTableAdapter.GetDataByFileName(baselineID, file.FullName);
                 if (filesDT.Count == 0)
                 {
                     string fileStr = File.ReadAllText(file.FullName);
@@ -83,7 +84,7 @@ namespace Pika_Test_Framework
                     description = GetFirstInstance<string>("Description", fileStr);
                     if (string.IsNullOrEmpty(description))
                         description = "";
-                    testsDT.AddTestsRow("newTestID", file.Name.TrimEnd('\''), "Kayak", file.FullName, Encoding.UTF8.GetBytes(description), file.CreationTime, file.LastWriteTime, pikaDBDataSet.Baselines[baselineID]); // New file -> Add
+                    testsDT.AddNewKayakFileTableRow(file.Name.TrimEnd('\''), file.FullName, description, file.CreationTime, file.LastWriteTime); // New file -> Add
                 }
                 else if (filesDT.Count == 1)
                     ; // File already exists in DB. Check if this is a newer copy
