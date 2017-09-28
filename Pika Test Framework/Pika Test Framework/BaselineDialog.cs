@@ -30,7 +30,7 @@ namespace Pika_Test_Framework
 
         private void button1_Click(object sender, EventArgs e)
         {
-            selectedBaseline = (int)comboBox1.SelectedValue - 1;
+            selectedBaseline = (int)comboBox1.SelectedValue;
             setDefault = checkBox1.Checked;
             this.DialogResult = DialogResult.OK;
         }

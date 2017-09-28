@@ -47,13 +47,30 @@ namespace Pika_Test_Framework
             dateModifiedTextBox.Text = modifiedTest.DateModified.ToLongTimeString();
             richTextieBox1.Text = modifiedTest.Description;
         }
+
+        public NewTestForm(PikaDBDataSet.BaselinesDataTable baselinesDT, PikaDBDataSet.LabelsDataTable labelsDT, int baseline, PikaDBDataSet.NewKayakFileTableRow newKayakFileTableRow)
+        {
+            InitializeComponent();
+            baselineCombo.DataSource = baselinesDT;
+            baselineCombo.DisplayMember = "Name";
+            baselineCombo.ValueMember = "Id";
+            baselineCombo.SelectedIndex = baseline;
+            filenameTextBox.Text = newKayakFileTableRow.FileName;
+            nameTextBox.Text = newKayakFileTableRow.Name;
+            dateCreatedTextBox.Text = newKayakFileTableRow.DateCreated.ToLongTimeString();
+            dateModifiedTextBox.Text = newKayakFileTableRow.DateModified.ToLongTimeString();
+            richTextieBox1.AppendRtf(newKayakFileTableRow.Description);
+
+
+        }
+
         private void NewTestForm_Load(object sender, EventArgs e)
         {
             // Trying to minimize the fill commands.
             // TODO: This line of code loads data into the 'pikaDBDataSet.Baselines' table. You can move, or remove it, as needed.
             //this.baselinesTableAdapter.Fill(this.pikaDBDataSet.Baselines);
             // TODO: This line of code loads data into the 'pikaDBDataSet.Labels' table. You can move, or remove it, as needed.
-            //this.labelsTableAdapter.Fill(this.pikaDBDataSet.Labels);
+            this.labelsTableAdapter.Fill(this.pikaDBDataSet.Labels);
 
             dataGridView1.DataSource = labelList;
             dataGridView1.Columns[0].DataPropertyName = "Name";
@@ -96,7 +113,12 @@ namespace Pika_Test_Framework
             Test newTest = new Test();
             newTest.Name = nameTextBox.Text;
             newTest.Baseline = (int)baselineCombo.SelectedValue;
-            newTest.Type = typeTextBox.Text;
+            if (radioButton1.Checked)
+                newTest.Type = "Kayak";
+            else if (radioButton2.Checked)
+                newTest.Type = "UFT";
+            else
+                newTest.Type = typeTextBox.Text;
             newTest.FileName = filenameTextBox.Text;
             newTest.DateCreated = Convert.ToDateTime(dateCreatedTextBox.Text);
             newTest.DateModified = Convert.ToDateTime(dateModifiedTextBox.Text);

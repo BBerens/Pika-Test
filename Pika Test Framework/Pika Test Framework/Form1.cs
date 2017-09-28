@@ -18,6 +18,8 @@ namespace Pika_Test_Framework
         {
             InitializeComponent();
             
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -44,7 +46,10 @@ namespace Pika_Test_Framework
             {
                 preferredBaseline = Properties.Settings.Default.Baseline;
             }
-            this.testsTableAdapter.Fill(this.pikaDBDataSet.Tests, preferredBaseline);
+            testsTableAdapter.Fill(this.pikaDBDataSet.Tests, preferredBaseline);
+            dataGridView1.Update();
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,7 +77,7 @@ namespace Pika_Test_Framework
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            int testId = (int)dataGridView1.SelectedCells[0].Value;
+            int testId = (int)pikaDBDataSet.Tests.Rows[dataGridView1.SelectedRows[0].Index]["ID"];
             PikaDBDataSet.TestViewDataTable testRows = this.testViewTableAdapter1.GetDataByTestID(testId);
             Test modifiedTest = new Test(testRows);
             using (var newTestForm = new NewTestForm(pikaDBDataSet.Baselines, pikaDBDataSet.Labels, modifiedTest))
@@ -115,6 +120,8 @@ namespace Pika_Test_Framework
                     }
                 }
             }
+            testsTableAdapter.Fill(pikaDBDataSet.Tests, preferredBaseline);
+            dataGridView1.Update();
         }
 
         private void autoGenerateToolStripMenuItem_Click(object sender, EventArgs e)

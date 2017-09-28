@@ -53,7 +53,7 @@ namespace Pika_Test_Framework
         private void button2_Click(object sender, EventArgs e)
         {
             AutoGenerator autoGen = new AutoGenerator(textBox1.Text, pikaDBDataSet);
-            autoGen.FindNewTestFiles(pikaDBDataSet.NewKayakFileTable, comboBox1.SelectedIndex);
+            autoGen.FindNewTestFiles(pikaDBDataSet.NewKayakFileTable, comboBox1.SelectedIndex + 1);
             dataGridView1.DataSource = pikaDBDataSet.NewKayakFileTable;
             dataGridView1.Update();
 
@@ -85,6 +85,31 @@ namespace Pika_Test_Framework
                     dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Highlight;
                 }
             }
+
+            else if(e.ColumnIndex == 1) // Clicked the Edit column icon
+            {
+                using (var newTestForm = new NewTestForm(pikaDBDataSet.Baselines, pikaDBDataSet.Labels, defaultBaseline, (PikaDBDataSet.NewKayakFileTableRow)pikaDBDataSet.NewKayakFileTable.Rows[e.RowIndex]))
+                {
+                    var result = newTestForm.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        //int newTestID;
+                        Test newTest = newTestForm.returnTest;
+                        pikaDBDataSet.Tests.AddTestsRow(newTest.TestId, newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, pikaDBDataSet.Baselines[newTest.Baseline]);
+                        var newTestID = testsTableAdapter.InsertQuery(newTest.TestId, newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, newTest.Baseline);
+                        //testsTableAdapter.Update(pikaDBDataSet);
+                        foreach (Label label in newTest.labels)
+                        {
+                            this.testLabelsTableAdapter.InsertQuery(Convert.ToInt32(newTestID), label.LabelId, label.Weight);
+                        }
+                        kayakFilesTableAdapter.Insert(newTest.Baseline, newTest.FileName, newTest.DateModified, newTest.DateCreated);
+                        pikaDBDataSet.NewKayakFileTable.Rows[e.RowIndex].Delete();
+                        //this.testsTableAdapter.Fill(this.pikaDBDataSet.Tests, preferredBaseline);
+                        dataGridView1.Update();
+                    }
+                }
+                
+            }
         }
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -95,11 +120,6 @@ namespace Pika_Test_Framework
             }
             dataGridView1.Columns[0].HeaderCell.Value = false;
             
-        }
-
-        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -135,9 +155,6 @@ namespace Pika_Test_Framework
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            dataGridView1.ClearSelection();
-        }
+
     }
 }

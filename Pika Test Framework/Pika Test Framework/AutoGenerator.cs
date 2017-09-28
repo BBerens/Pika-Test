@@ -71,20 +71,21 @@ namespace Pika_Test_Framework
             string description;
             var dir = new DirectoryInfo(rootDirectory);
             var doc = GetDirectory(dir, testFiles);
-            doc.Save("dirStructure.xml");
+            //doc.Save("dirStructure.xml");
             testsDT.Clear();
+            PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter = new PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
             foreach (FileInfo file in testFiles)
             {
-                PikaDBDataSetTableAdapters.KayakFilesTableAdapter kayakFilesTableAdapter = new PikaDBDataSetTableAdapters.KayakFilesTableAdapter();
                 filesDT = kayakFilesTableAdapter.GetDataByFileName(baselineID, file.FullName);
-                if (filesDT.Count == 0)
+                if (filesDT.Count == 0)  // File isn't present in DB -> Add
                 {
                     string fileStr = File.ReadAllText(file.FullName);
 
                     description = GetFirstInstance<string>("Description", fileStr);
                     if (string.IsNullOrEmpty(description))
                         description = "";
-                    testsDT.AddNewKayakFileTableRow(file.Name.TrimEnd('\''), file.FullName, description, file.CreationTime, file.LastWriteTime); // New file -> Add
+                    string shortFileName = file.FullName.Replace(rootDirectory, "..");
+                    testsDT.AddNewKayakFileTableRow(file.Name.TrimEnd('\''), file.FullName, description, file.CreationTime, file.LastWriteTime, shortFileName);
                 }
                 else if (filesDT.Count == 1)
                     ; // File already exists in DB. Check if this is a newer copy
@@ -92,28 +93,6 @@ namespace Pika_Test_Framework
                     ; // Something is wrong and more than one file in DB have the same filepath
             }
         }
-
-        /*private void LoadElements(XElement xElem)
-        {
-
-            foreach (XElement element in xElem.Elements())
-            {
-                if (element.HasElements)
-                {
-                    if (element.FirstAttribute != null)
-                    {
-                        LoadElements(element);
-                    }
-                    else
-                    {
-                        LoadElements(element);
-                    }
-                }
-                else
-                    treeNode.Nodes.Add(element.FirstAttribute.Value);
-            }
-
-        }*/
 
         public T GetFirstInstance<T>(string propertyName, string json)
         {

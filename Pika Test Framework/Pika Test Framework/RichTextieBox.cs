@@ -344,6 +344,11 @@ namespace Pika_Test_Framework
         {
             rtb1.SelectedRtf = Clipboard.GetText(TextDataFormat.Rtf);
         }
+
+        public void AppendRtf(string inString)
+        {
+            rtb1.AppendText(inString);
+        }
     }
 }
 
