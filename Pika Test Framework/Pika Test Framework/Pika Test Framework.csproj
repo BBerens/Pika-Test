@@ -62,6 +62,7 @@
     <Compile Include="BaselineDialog.Designer.cs">
       <DependentUpon>BaselineDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="BVSInterface.cs" />
     <Compile Include="GridViewCheckBoxColumn.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

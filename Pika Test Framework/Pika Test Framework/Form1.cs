@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
 
 namespace Pika_Test_Framework
 {
@@ -128,6 +129,28 @@ namespace Pika_Test_Framework
         {
             AutoGenerateForm autoGen1 = new AutoGenerateForm(pikaDBDataSet, preferredBaseline);
             autoGen1.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            BVSGetRequest("http://sc-css-wb-02-vm/dev/ka/bvskayakapi.php?action=get&id=418");
+            
+        }
+
+        async static void BVSGetRequest(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = await client.GetAsync(url))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        string responseString = await content.ReadAsStringAsync();
+                        Console.WriteLine(responseString);
+                        ;
+                    }
+                }
+            }
         }
     }
 }
