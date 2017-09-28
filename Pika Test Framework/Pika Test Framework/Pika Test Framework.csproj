@@ -161,9 +161,7 @@
     <Resource Include="Resources\Edit_16x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Edit_16x.png" />
     <Content Include="Resources\Edit_grey_16x.png" />
-    <None Include="Resources\Edit_grey_16x1.png" />
     <Content Include="SQLQueries\SQLQuery2.sql" />
     <Content Include="SQLQueries\SQLQuery5.sql" />
   </ItemGroup>
