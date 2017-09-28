@@ -66,6 +66,8 @@ namespace Pika_Test_Framework
 
         private void NewTestForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'pikaDBDataSet.Runs' table. You can move, or remove it, as needed.
+            this.runsTableAdapter.Fill(this.pikaDBDataSet.Runs);
             // Trying to minimize the fill commands.
             // TODO: This line of code loads data into the 'pikaDBDataSet.Baselines' table. You can move, or remove it, as needed.
             //this.baselinesTableAdapter.Fill(this.pikaDBDataSet.Baselines);
@@ -153,5 +155,6 @@ namespace Pika_Test_Framework
             }
 
         }
+
     }
 }

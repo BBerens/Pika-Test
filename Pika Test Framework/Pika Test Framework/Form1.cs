@@ -15,6 +15,7 @@ namespace Pika_Test_Framework
     {
         int preferredBaseline;
         private Test newTest;
+        private List<string> allColumns = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -49,6 +50,19 @@ namespace Pika_Test_Framework
             }
             testsTableAdapter.Fill(this.pikaDBDataSet.Tests, preferredBaseline);
             dataGridView1.Update();
+            
+            foreach(DataTable dt in pikaDBDataSet.Tables)
+            {
+                if(dt.TableName == "Tests" || dt.TableName == "Runs" || dt.TableName == "Labels")
+                foreach(DataColumn column in dt.Columns)
+                {
+                    allColumns.Add(dt.TableName +  "_" + column.ColumnName);
+                }
+            }
+
+            comboBox1.DataSource = allColumns;
+            comboBox2.DataSource = allColumns;
+            comboBox3.DataSource = allColumns;
 
 
         }

@@ -61,16 +61,28 @@
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.richTextieBox1 = new Pika_Test_Framework.RichTextieBox();
             this.baselinesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.runsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.runsTableAdapter = new Pika_Test_Framework.PikaDBDataSetTableAdapters.RunsTableAdapter();
+            this.runIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.runDateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pikaDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource)).BeginInit();
@@ -78,6 +90,11 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.runsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -257,7 +274,7 @@
             // 
             this.baselineCombo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pikaDBDataSet, "Baselines.ID", true));
             this.baselineCombo.FormattingEnabled = true;
-            this.baselineCombo.Location = new System.Drawing.Point(65, 29);
+            this.baselineCombo.Location = new System.Drawing.Point(86, 29);
             this.baselineCombo.Name = "baselineCombo";
             this.baselineCombo.Size = new System.Drawing.Size(121, 21);
             this.baselineCombo.TabIndex = 24;
@@ -286,7 +303,7 @@
             // 
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 12);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(718, 537);
             this.groupBox1.TabIndex = 26;
@@ -325,6 +342,45 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(713, 506);
             this.panel1.TabIndex = 25;
+            // 
+            // typeTextBox
+            // 
+            this.typeTextBox.Location = new System.Drawing.Point(253, 117);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.Size = new System.Drawing.Size(89, 20);
+            this.typeTextBox.TabIndex = 33;
+            this.typeTextBox.Text = "Other";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(233, 120);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(14, 13);
+            this.radioButton3.TabIndex = 32;
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(161, 118);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(46, 17);
+            this.radioButton2.TabIndex = 31;
+            this.radioButton2.Text = "UFT";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(86, 118);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(55, 17);
+            this.radioButton1.TabIndex = 30;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Kayak";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -401,7 +457,7 @@
             this.richTextieBox1.Location = new System.Drawing.Point(355, 29);
             this.richTextieBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.richTextieBox1.Name = "richTextieBox1";
-            this.richTextieBox1.Size = new System.Drawing.Size(469, 480);
+            this.richTextieBox1.Size = new System.Drawing.Size(354, 455);
             this.richTextieBox1.TabIndex = 23;
             // 
             // baselinesBindingSource1
@@ -409,44 +465,100 @@
             this.baselinesBindingSource1.DataMember = "Baselines";
             this.baselinesBindingSource1.DataSource = this.pikaDBDataSet;
             // 
-            // radioButton1
+            // tabControl1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(86, 118);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(55, 17);
-            this.radioButton1.TabIndex = 30;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Kayak";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(1, 2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(727, 541);
+            this.tabControl1.TabIndex = 34;
             // 
-            // radioButton2
+            // tabPage1
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(161, 118);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(46, 17);
-            this.radioButton2.TabIndex = 31;
-            this.radioButton2.Text = "UFT";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(719, 515);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Summary";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // tabPage2
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(233, 120);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(14, 13);
-            this.radioButton3.TabIndex = 32;
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(719, 515);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "History";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // typeTextBox
+            // dataGridView2
             // 
-            this.typeTextBox.Location = new System.Drawing.Point(253, 117);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(89, 20);
-            this.typeTextBox.TabIndex = 33;
-            this.typeTextBox.Text = "Other";
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.runIDDataGridViewTextBoxColumn,
+            this.testIDDataGridViewTextBoxColumn,
+            this.resourceIDDataGridViewTextBoxColumn,
+            this.runDateTimeDataGridViewTextBoxColumn,
+            this.resultDataGridViewTextBoxColumn,
+            this.resultStringDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.runsBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(7, 25);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(706, 484);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // runsBindingSource
+            // 
+            this.runsBindingSource.DataMember = "Runs";
+            this.runsBindingSource.DataSource = this.pikaDBDataSet;
+            // 
+            // runsTableAdapter
+            // 
+            this.runsTableAdapter.ClearBeforeFill = true;
+            // 
+            // runIDDataGridViewTextBoxColumn
+            // 
+            this.runIDDataGridViewTextBoxColumn.DataPropertyName = "RunID";
+            this.runIDDataGridViewTextBoxColumn.HeaderText = "RunID";
+            this.runIDDataGridViewTextBoxColumn.Name = "runIDDataGridViewTextBoxColumn";
+            this.runIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // testIDDataGridViewTextBoxColumn
+            // 
+            this.testIDDataGridViewTextBoxColumn.DataPropertyName = "TestID";
+            this.testIDDataGridViewTextBoxColumn.HeaderText = "TestID";
+            this.testIDDataGridViewTextBoxColumn.Name = "testIDDataGridViewTextBoxColumn";
+            // 
+            // resourceIDDataGridViewTextBoxColumn
+            // 
+            this.resourceIDDataGridViewTextBoxColumn.DataPropertyName = "ResourceID";
+            this.resourceIDDataGridViewTextBoxColumn.HeaderText = "ResourceID";
+            this.resourceIDDataGridViewTextBoxColumn.Name = "resourceIDDataGridViewTextBoxColumn";
+            // 
+            // runDateTimeDataGridViewTextBoxColumn
+            // 
+            this.runDateTimeDataGridViewTextBoxColumn.DataPropertyName = "RunDateTime";
+            this.runDateTimeDataGridViewTextBoxColumn.HeaderText = "RunDateTime";
+            this.runDateTimeDataGridViewTextBoxColumn.Name = "runDateTimeDataGridViewTextBoxColumn";
+            // 
+            // resultDataGridViewTextBoxColumn
+            // 
+            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
+            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
+            // 
+            // resultStringDataGridViewTextBoxColumn
+            // 
+            this.resultStringDataGridViewTextBoxColumn.DataPropertyName = "ResultString";
+            this.resultStringDataGridViewTextBoxColumn.HeaderText = "ResultString";
+            this.resultStringDataGridViewTextBoxColumn.Name = "resultStringDataGridViewTextBoxColumn";
             // 
             // NewTestForm
             // 
@@ -454,8 +566,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button4;
-            this.ClientSize = new System.Drawing.Size(727, 605);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(734, 615);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Name = "NewTestForm";
@@ -469,6 +581,11 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baselinesBindingSource1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.runsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -514,5 +631,17 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource runsBindingSource;
+        private PikaDBDataSetTableAdapters.RunsTableAdapter runsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn runIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn testIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn runDateTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultStringDataGridViewTextBoxColumn;
     }
 }

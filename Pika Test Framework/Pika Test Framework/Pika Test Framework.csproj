@@ -62,6 +62,12 @@
     <Compile Include="BaselineDialog.Designer.cs">
       <DependentUpon>BaselineDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuildReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildReportForm.Designer.cs">
+      <DependentUpon>BuildReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BVSInterface.cs" />
     <Compile Include="GridViewCheckBoxColumn.cs" />
     <Compile Include="Form1.cs">
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaselineDialog.resx">
       <DependentUpon>BaselineDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuildReportForm.resx">
+      <DependentUpon>BuildReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
