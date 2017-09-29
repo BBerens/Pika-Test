@@ -148,8 +148,8 @@
     </None>
     <None Include="PikaDBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PikaDBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>PikaDBDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="PikaDBDataSet.xss">
       <DependentUpon>PikaDBDataSet.xsd</DependentUpon>
@@ -168,6 +168,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQLQueries\StoredProcedureTestInsert.sql" />
     <Resource Include="Resources\Edit_16x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
