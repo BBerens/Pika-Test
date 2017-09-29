@@ -19,15 +19,11 @@ namespace Pika_Test_Framework
         public Form1()
         {
             InitializeComponent();
-            
-
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.baselinesTableAdapter1.Fill(this.pikaDBDataSet.Baselines);
-            ;
             if (Properties.Settings.Default.Baseline == -1)
             {
                 using (var bDlg = new BaselineDialog())
@@ -59,12 +55,6 @@ namespace Pika_Test_Framework
                     allColumns.Add(dt.TableName +  "_" + column.ColumnName);
                 }
             }
-
-            comboBox1.DataSource = allColumns;
-            comboBox2.DataSource = allColumns;
-            comboBox3.DataSource = allColumns;
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -145,11 +135,6 @@ namespace Pika_Test_Framework
             autoGen1.Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            BVSGetRequest("http://sc-css-wb-02-vm/dev/ka/bvskayakapi.php?action=get&id=418");
-            
-        }
 
         async static void BVSGetRequest(string url)
         {
@@ -161,10 +146,90 @@ namespace Pika_Test_Framework
                     {
                         string responseString = await content.ReadAsStringAsync();
                         Console.WriteLine(responseString);
-                        ;
                     }
                 }
             }
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            BVSGetRequest("http://sc-css-wb-02-vm/dev/ka/bvskayakapi.php?action=get&id=418");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                comboBox1.Enabled = true;
+                textBox1.Enabled = true;
+                comboBox1.DataSource = allColumns;
+            }
+            else
+            {
+                comboBox1.Enabled = false;
+                textBox1.Enabled = false;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                comboBox2.Enabled = true;
+                textBox2.Enabled = true;
+                comboBox2.DataSource = allColumns;
+            }
+            else
+            {
+                comboBox2.Enabled = false;
+                textBox2.Enabled = false;
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked == true)
+            {
+                comboBox3.Enabled = true;
+                textBox3.Enabled = true;
+                comboBox3.DataSource = allColumns;
+            }
+            else
+            {
+                comboBox3.Enabled = false;
+                textBox3.Enabled = false;
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox4.Checked == true)
+            {
+                comboBox4.Enabled = true;
+                textBox4.Enabled = true;
+                comboBox4.DataSource = allColumns;
+            }
+            else
+            {
+                comboBox4.Enabled = false;
+                textBox4.Enabled = false;
+            }
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked == true)
+            {
+                comboBox5.Enabled = true;
+                textBox5.Enabled = true;
+                comboBox5.DataSource = allColumns;
+            }
+            else
+            {
+                comboBox5.Enabled = false;
+                textBox5.Enabled = false;
+            }
+        }
+
     }
 }

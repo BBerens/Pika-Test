@@ -104,7 +104,6 @@ namespace Pika_Test_Framework
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
             labelHashSet.Remove(((Label)dataGridView1.SelectedRows[0].DataBoundItem).LabelId);
             labelList.Remove((Label)dataGridView1.SelectedRows[0].DataBoundItem);
             dataGridView1.Update();
@@ -156,5 +155,10 @@ namespace Pika_Test_Framework
 
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (!pikaDBDataSet.Labels.AsEnumerable().Any(row => comboBox1.Text == row.Field<string>("labelName")))
+                labelsTableAdapter.Insert(comboBox1.Text);
+        }
     }
 }

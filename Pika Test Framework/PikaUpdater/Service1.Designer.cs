@@ -28,13 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.BVSTimer = new System.Windows.Forms.Timer(this.components);
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            // 
+            // BVSTimer
+            // 
+            this.BVSTimer.Interval = 600000;
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.Filter = "TestResult.xml";
+            this.fileSystemWatcher1.IncludeSubdirectories = true;
+            this.fileSystemWatcher1.Path = "C:\\Users\\bberens153719\\Documents";
+            this.fileSystemWatcher1.Created += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Created);
             // 
             // PikaUpdater
             // 
             this.ServiceName = "PikaUpdater";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer BVSTimer;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
