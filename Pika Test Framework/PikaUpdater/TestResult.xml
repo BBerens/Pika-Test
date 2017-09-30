@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestResults Start="2017-09-26 17:39:31" End="2017-09-26 19:14:12" TestLab="Nokota 3030006193\Automated Sanity Test Lab.xml" Baseline="Nokota" BaselineVer="raB2.4_139" TestMachine="PPC-FES001-NT-V" KayakVer="T1.0_65" KayakBaselineVer="T2.3_62">
+  <Test Number="1" LoopNumber="0" Name="ECD WLP Chamber Process Recipe Test">
+    <Result Status="Failed" Duration="00:08:08.3075882">
+      <Error>Timed out waiting for attribute 'AT/P1L2/WaferRinse/Flow1/Valve.rIsOpen' to  equal 'True'.  Last value was 'False'.  Quality ok: True.</Error>
+      <Notes>File: ECD WLP Process Rx Test.txt
+ECD WLP recipe test. Verify all possible head positions, power supply operation, varied velocities, and paddle motion.
+Chamber: AT/P1L2, CChECDWLP</Notes>
+    </Result>
+  </Test>
+  <Test Number="2" LoopNumber="0" Name="ECD WLP Clean Recipe Test">
+    <Result Status="Passed" Duration="00:00:56.4111499">
+      <Notes>File: ECD WLP Clean Rx Test.txt
+ECD Clean recipe test. Verify paddle agitation and chamber head position.
+Chamber: AT/P1L1, CChECDWLP</Notes>
+    </Result>
+  </Test>
+  <Test Number="3" LoopNumber="0" Name="ECDWLP Tank Flow Test">
+    <Result Status="Passed" Duration="00:00:42.0676662">
+      <Notes>File: ECDWLP Tank Flow Test.txt
+ECD Tank flow test, checks all ECD common valves for proper open/close state throughout a recipe.
+Chamber: AT/Shared/Tank1, CTankECDWLP</Notes>
+    </Result>
+  </Test>
+  <Test Number="4" LoopNumber="0" Name="SRD Process Recipe Test">
+    <Result Status="Passed" Duration="00:00:51.8162452">
+      <Notes>File: SRD Process Rx Test.txt
+SRD process recipe test. Verify varied velocities, and valve operation.
+Chamber: AT/S1L1, CChSRD</Notes>
+    </Result>
+  </Test>
+  <Test Number="5" LoopNumber="0" Name="SRM Process Recipe Test">
+    <Result Status="Passed" Duration="00:00:20.4054784">
+      <Notes>File: SRM Process Rx Test.txt
+Chamber: AT/S1L2, CChSpinningRMM</Notes>
+    </Result>
+  </Test>
+  <Test Number="6" LoopNumber="0" Name="VPW Process Recipe Test">
+    <Result Status="Passed" Duration="00:01:39.9516938">
+      <Notes>File: VPW Process Rx Test.txt
+VPW process recipe test. Verify chuck states, MFC open and closed loop operation, and delivery valve states.
+Chamber: AT/S1L3, CChVacuumPrewetDS</Notes>
+    </Result>
+  </Test>
+  <Test Number="7" LoopNumber="0" Name="SRD Clean Recipe Test">
+    <Result Status="Failed" Duration="00:00:54.9610171">
+      <Error>Recipe CFM validation failed.</Error>
+      <Notes>File: SRD Clean Rx Test.txt
+SRD clean recipe test. Verify varied velocities, and valve operation.
+Chamber: AT/S1R1, CChSRD</Notes>
+    </Result>
+  </Test>
+  <Test Number="8" LoopNumber="0" Name="SRM Clean Recipe Test">
+    <Result Status="Passed" Duration="00:00:45.5706653">
+      <Notes>File: SRM Clean Rx Test.txt
+SRM Clean recipe test, verify velocities, lift profiles, spray arm profiles.
+Chamber: AT/S1R2, CChSpinningRMM</Notes>
+    </Result>
+  </Test>
+  <Test Number="9" LoopNumber="0" Name="VPW Clean Recipe Test">
+    <Result Status="Passed" Duration="00:00:34.0025045">
+      <Notes>File: VPW Clean Rx Test.txt
+VPW clean recipe test. Verify chuck is open and delivery valve states.
+Chamber: AT/S1R3, CChVacuumPrewetDS</Notes>
+    </Result>
+  </Test>
+  <Test Number="10" LoopNumber="0" Name="ECDWLP Tank Flow Test">
+    <Result Status="Passed" Duration="00:00:41.0289583">
+      <Notes>File: ECDWLP Tank Flow Test.txt
+ECD Tank flow test, checks all ECD common valves for proper open/close state throughout a recipe.
+Chamber: AT/Shared/Tank2, CTankECDWLP</Notes>
+    </Result>
+  </Test>
+  <Test Number="11" LoopNumber="0" Name="TestAlCeIdsToolCfg">
+    <Result Status="Failed" Duration="00:00:02.1998098">
+      <Error>ToolCfg ALID/CEIDs have changed.  5156 added.  42 removed.  77 modified.</Error>
+    </Result>
+  </Test>
+  <Test Number="12" LoopNumber="0" Name="TestSvIdsToolCfg">
+    <Result Status="PassedWithWarning" Duration="00:00:02.0323689">
+      <Warnings>ToolCfg SVIDs have changed.  1526 added.  0 removed.  0 modified.</Warnings>
+    </Result>
+  </Test>
+  <Test Number="13" LoopNumber="0" Name="TestEcIdsToolCfg">
+    <Result Status="Failed" Duration="00:00:01.3183723">
+      <Error>ToolCfg ECIDs have changed.  21 added.  2 removed.  26 modified.</Error>
+    </Result>
+  </Test>
+  <Test Number="14" LoopNumber="0" Name="Sequencer Sanity">
+    <Result Status="Failed" Duration="01:16:17.4298535">
+      <Error>Sequencer validation failed.</Error>
+      <Notes>File: 3 Sequences Sanity Test.txt</Notes>
+    </Result>
+  </Test>
+</TestResults>
