@@ -109,6 +109,7 @@
     <Compile Include="Run.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestLabel.cs" />
+    <Compile Include="TestXMLParser.cs" />
     <Compile Include="UserSettings.cs" />
     <EmbeddedResource Include="AutoGenerateForm.resx">
       <DependentUpon>AutoGenerateForm.cs</DependentUpon>

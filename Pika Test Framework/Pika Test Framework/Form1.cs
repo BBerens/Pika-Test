@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
+ 
 
 namespace Pika_Test_Framework
 {
@@ -68,11 +69,12 @@ namespace Pika_Test_Framework
                     newTest = newTestForm.returnTest;
                     
                     pikaDBDataSet.Tests.AddTestsRow(newTest.TestId, newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, pikaDBDataSet.Baselines[newTest.Baseline]);
-                    testsTableAdapter.InsertTest(newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, newTest.Baseline);
-                    //testsTableAdapter.Update(pikaDBDataSet);
+                    //Fix this to properly use stored procedure
+                    //testsTableAdapter.InsertTest(newTest.Name, newTest.Type, newTest.FileName, Encoding.UTF8.GetBytes(newTest.Description), newTest.DateCreated, newTest.DateModified, newTest.Baseline);
+                    
                     foreach(Label label in newTest.labels)
                     {
-                       this.testLabelsTableAdapter1.InsertQuery(Convert.ToInt32(newTestID), label.LabelId, label.Weight);
+                       //this.testLabelsTableAdapter1.InsertQuery(Convert.ToInt32(newTestID), label.LabelId, label.Weight);
                     }
                     //this.testsTableAdapter.Fill(this.pikaDBDataSet.Tests, preferredBaseline);
                     dataGridView1.Update();
@@ -231,5 +233,9 @@ namespace Pika_Test_Framework
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TestXMLParser testXMLParser = new TestXMLParser("C:\\Users\\bberens153719\\Source\\Repos\\Pika-Test\\Pika Test Framework\\PikaUpdater\\TestResultDAP.xml");
+        }
     }
 }
